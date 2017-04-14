@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from flask import Flask, send_from_directory,jsonify, render_template, request
 
@@ -9,9 +9,8 @@ import json
 import MySQLdb
 import sys
 import datetime
-from sqlalchemy.sql import select
-import sqlalchemy
-import os
+# from sqlalchemy.sql import select
+# import sqlalchemy
 
 @app.route("/")
 def index():
@@ -33,10 +32,10 @@ def send_map():
 def dictionary_download():	
 	db = MySQLdb.connect(host="localhost",    # your host, usually localhost
                      user="root",         # your username
-                     passwd="",  # your password
-                     db="aeolian")        # name of the data base
+                     passwd="777",  # your password
+                     db="aeolianeye")        # name of the data base
 	cur = db.cursor()
-	cur.execute("SELECT * FROM AeolianSensorA")
+	cur.execute("SELECT * FROM AeolianSensor1")
 
 	response = ""
 	myresult = []
@@ -48,7 +47,7 @@ def dictionary_download():
 	return jsonify(myresult)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
 
 # 	# path = os.path.abspath (app.config['TYPO_DICT_PATH'])
 # 	# assert os.path.exists (path)
