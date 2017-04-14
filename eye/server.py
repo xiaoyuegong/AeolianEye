@@ -34,17 +34,30 @@ def dictionary_download():
                      user="root",         # your username
                      passwd="777",  # your password
                      db="aeolianeye")        # name of the data base
-	cur = db.cursor()
+	cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 	cur.execute("SELECT * FROM AeolianSensor1")
-
-	response = ""
-	myresult = []
-	column = [t[0] for t in cur.description]
-	for row in cur.fetchall():
-		myjson = {column[0]: row[0], column[1]: row[1], column[2]: row[2]}
-		myresult.append(myjson)
-
-	return jsonify(myresult)
+	myresult = cur.fetchall()
+	for d in myresult:
+		d['time'] = d['time'].isoformat()
+	# print(myresult)
+	# print(cur.fetchall())
+	# return 'ok'
+	# response = ""
+	# myresult = []
+	# column = [t[0] for t in cur.description]
+	# print(column)
+	# for row in cur.fetchall():
+	# 	myjson = {column[0]: row[0].isoformat(), column[1]: row[1], column[2]: row[2]}
+	# 	myresult.append(myjson)
+	# print('data', myresult, sep='\n\n')
+	try:
+		return jsonify(results=myresult)
+	except Exception as e:
+		print(e)
+		return 'bad'
+	# retval = jsonify(myresult)
+	# print(retval)
+	# return retval
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
