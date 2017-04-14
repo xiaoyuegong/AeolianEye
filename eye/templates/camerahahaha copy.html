@@ -77,6 +77,7 @@ h1 {
       var cnv;
       var videop;
       var gastlyArr = [];
+      var bulbasaurArr = [];
       function centerCanvas() {
         var x = (windowWidth - width) / 2;
         var y = windowHeight * 0.2;
@@ -89,6 +90,7 @@ h1 {
         videop = createCapture(VIDEO);
         gastly = loadImage("static/Gastly.png");
         muk = loadImage("static/Muk1.png");
+        bulbasaur = loadImage("static/Bulbasaur.png");
         videop.hide();
         //gastlyArr.push(new newGastly());
         gastlyArr.push(new newGastly());
@@ -97,6 +99,10 @@ h1 {
         cnv = createCanvas(windowWidth/1.5, windowWidth/2);
         centerCanvas();
         image(videop, 0, 0, width, height);
+        for(i=0;i<gastlyArr.length; i++){
+          gastlyArr[i].move();
+          //console.log(gastlyArr[i].gx+i+":gx");
+        }
         for(i=0;i<gastlyArr.length; i++){
           gastlyArr[i].move();
           //console.log(gastlyArr[i].gx+i+":gx");
@@ -135,6 +141,22 @@ h1 {
           this.gy = random(height-30);
           }
         }
+     }
+
+      function newBulbasaur(){
+        this.gx = random(width*0.8);
+        this.gy = random(100);
+        this.gxPlus = 0.01+random(0.8);
+
+        this.move = function(){
+          this.gyPlus = sin(0.5*this.gx);
+          image(bulbasaur, this.gx, this.gy+this.gyPlus, 100, 100);
+          this.gx += this.gxPlus;
+          if(this.gx > width*0.8 || this.gx < 0){
+          this.gxPlus *= -1;
+          this.gy = random(height-30);
+          }
+        }
 
      }
 
@@ -145,10 +167,15 @@ h1 {
       console.log('new', newdata);
       console.log(newdata[0].data);
     console.log(newdata[newdata.length-1].data);
-      for(i = 0; i < 100- newdata[newdata.length-1].data; i ++){
+      for(i = 0; i < newdata[newdata.length-1].data-100; i= i + 5){
         gastlyArr.push(new newGastly());
         //gastlyArr.push(new newGastly());
       }
+      for(i = 0; i < 100- newdata[newdata.length-1].data; i = i + 3){
+        bulbasaurArr.push(new newBulbasaur());
+        //gastlyArr.push(new newGastly());
+      }
+
     });
   };
 
