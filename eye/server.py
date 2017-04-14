@@ -59,8 +59,14 @@ def dictionary_download():
 	# print(retval)
 	# return retval
 
+@app.route('/.well-known/acme-challenge/<token_value>')
+def letsencrpyt(token_value):
+    with open('.well-known/acme-challenge/{}'.format(token_value)) as f:
+        answer = f.readline().strip()
+    return answer
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=443, ssl_context=('/etc/letsencrypt/live/aeolianair.com/fullchain.pem', '/etc/letsencrypt/live/aeolianair.com/privkey.pem'))
 
 # 	# path = os.path.abspath (app.config['TYPO_DICT_PATH'])
 # 	# assert os.path.exists (path)
