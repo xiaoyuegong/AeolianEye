@@ -18,7 +18,7 @@ def index():
 	# path = os.path.dirname(os.path.abspath(__file__))
 	# img_path = os.path.join(path, "Gastly.png")
 	# print(img_path)
-	return send_from_directory("templates/", "camerahahaha copy.html")
+	return send_from_directory("templates/", "index.html")
 
 @app.route("/map")
 def send_map():
@@ -26,15 +26,15 @@ def send_map():
 	# path = os.path.dirname(os.path.abspath(__file__))
 	# img_path = os.path.join(path, "Gastly.png")
 	# print(img_path)
-	return send_from_directory("templates/", "camerahahaha.html")
+	return send_from_directory("templates/", "map.html")
 
 @app.route("/butler")
 def send_butler():
-        # print(app.root_path)
-        # path = os.path.dirname(os.path.abspath(__file__))
-        # img_path = os.path.join(path, "Gastly.png")
-        # print(img_path)
         return send_from_directory("templates/", "butler.html")
+
+@app.route("/mirror")
+def send_mirror():
+        return send_from_directory("templates/", "mirror.html")
 
 @app.route("/data")
 def dictionary_download():	
