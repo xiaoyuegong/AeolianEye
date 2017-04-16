@@ -1,0 +1,193 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Aeolian Eye</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/addons/p5.dom.min.js"></script>
+    <script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+  </head>
+<style type="text/css">
+#main{
+  position: relative;
+}
+#video{
+   margin-top:20em;
+  position: absolute;
+  top:60%;
+  transform: translate(0, -50%);
+}
+h1 {
+    position: relative;
+    text-align: center;
+    /*background-image: url("static/logo.png");*/
+}
+</style>
+  <body>
+    <h1>Aeolian Eye</h1>
+    <div id="main">
+    	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" onclick = "location.reload()" id="refre">Aeolian</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="https://aeolianair.com/map">Map</a></li>
+        <li ><a href="https://aeolianair.com/butler">Butler</a></li>
+        <li class="active"><a href="https://aeolianair.com/butler">Reality<span class="sr-only">(current)</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi Xiaoyue! <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">My Account</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    </div>
+<div id="video">
+    <script type="text/javascript">
+      var capture;
+      var gastly;
+      var muk;
+      var cnv;
+      var videop;
+      var gastlyArr = [];
+      var bulbasaurArr = [];
+      function centerCanvas() {
+        var x = (windowWidth - width) / 2;
+        var y = windowHeight * 0.2;
+        cnv.position(x, y);
+      }
+
+      function setup() {
+        var a = (windowWidth - width) / 2;
+        var b = (windowHeight - height) / 2;
+        videop = createCapture(VIDEO);
+        gastly = loadImage("static/Gastly.png");
+        muk = loadImage("static/Muk1.png");
+        bulbasaur = loadImage("static/Bulbasaur.png");
+        videop.hide();
+        //gastlyArr.push(new newGastly());
+        gastlyArr.push(new newGastly());
+      }
+      function draw() {   
+        cnv = createCanvas(windowWidth/1.7, windowWidth/2.3);
+        centerCanvas();
+        image(videop,0, 20, width, height);
+        for(i=0;i<gastlyArr.length; i++){
+          gastlyArr[i].move();
+          //console.log(gastlyArr[i].gx+i+":gx");
+        }
+        for(i=0;i<gastlyArr.length; i++){
+          gastlyArr[i].move();
+          //console.log(gastlyArr[i].gx+i+":gx");
+        }
+      }
+
+      function mouseClicked() {
+        console.log("onclicked");
+        console.log(mouseX+"X"+mouseY+"Y");
+        //console.log(gastlyArr[i].gx+"gx"+this.gy+"gy"+this.gyPlus+"gyPlus");
+        for(i=0;i<gastlyArr.length; i++){
+          if(mouseX-40 > gastlyArr[i].gx-20 && mouseX-40 < gastlyArr[i].gx+20 && mouseY-50 > gastlyArr[i].gy-20 && mouseY-50 < gastlyArr[i].gy+20){
+            gastlyArr.splice(i,1);
+            console.log("hittarget");
+          }
+        }
+  
+      }
+
+      function windowResized() {
+        centerCanvas();
+      }
+
+
+      function newGastly(){
+        this.gx = random(width*0.8);
+        this.gy = random(100);
+        this.gxPlus = 0.01+random(0.8);
+
+        this.move = function(){
+          this.gyPlus = sin(0.5*this.gx);
+          image(gastly, this.gx, this.gy+this.gyPlus, 100, 100);
+          this.gx += this.gxPlus;
+          if(this.gx > width*0.8 || this.gx < 0){
+          this.gxPlus *= -1;
+          this.gy = random(height-30);
+          }
+        }
+     }
+
+      function newBulbasaur(){
+        this.gx = random(width*0.8);
+        this.gy = random(100);
+        this.gxPlus = 0.01+random(0.8);
+
+        this.move = function(){
+          this.gyPlus = sin(0.5*this.gx);
+          image(bulbasaur, this.gx, this.gy+this.gyPlus, 100, 100);
+          this.gx += this.gxPlus;
+          if(this.gx > width*0.8 || this.gx < 0){
+          this.gxPlus *= -1;
+          this.gy = random(height-30);
+          }
+        }
+
+     }
+
+
+
+  var console_data = function(e) {
+    $.get('/data', function (newdata) {
+      console.log('new', newdata);
+      console.log(newdata[0].data);
+    console.log(newdata[newdata.length-1].data);
+      for(i = 0; i < newdata[newdata.length-1].data-100; i= i + 5){
+        gastlyArr.push(new newGastly());
+        //gastlyArr.push(new newGastly());
+      }
+      for(i = 0; i < 100- newdata[newdata.length-1].data; i = i + 3){
+        bulbasaurArr.push(new newBulbasaur());
+        //gastlyArr.push(new newGastly());
+      }
+
+    });
+  };
+
+  // setInterval(function () {console.log(1234);}, 100);
+
+  $(function() {
+    console_data();
+    $('#refre').bind('click', console_data());
+  });
+
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </div>
+  </body>
+</html>
