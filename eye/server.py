@@ -32,6 +32,10 @@ def send_map():
 def send_butler():
         return send_from_directory("templates/", "butler.html")
 
+@app.route("/help")
+def send_butler():
+        return send_from_directory("templates/", "help.html")
+
 @app.route("/mirror")
 def send_mirror():
         return send_from_directory("templates/", "mirror.html")
