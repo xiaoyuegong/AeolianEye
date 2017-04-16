@@ -28,6 +28,14 @@ def send_map():
 	# print(img_path)
 	return send_from_directory("templates/", "camerahahaha.html")
 
+@app.route("/butler")
+def send_butler():
+        # print(app.root_path)
+        # path = os.path.dirname(os.path.abspath(__file__))
+        # img_path = os.path.join(path, "Gastly.png")
+        # print(img_path)
+        return send_from_directory("templates/", "butler.html")
+
 @app.route("/data")
 def dictionary_download():	
 	db = MySQLdb.connect(host="localhost",    # your host, usually localhost
