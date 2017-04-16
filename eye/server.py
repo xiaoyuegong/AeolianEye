@@ -33,7 +33,7 @@ def send_butler():
         return send_from_directory("templates/", "butler.html")
 
 @app.route("/help")
-def send_butler():
+def send_help():
         return send_from_directory("templates/", "help.html")
 
 @app.route("/mirror")
