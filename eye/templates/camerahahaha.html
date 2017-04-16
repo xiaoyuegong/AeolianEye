@@ -20,7 +20,6 @@
     #map {
       margin: auto;
       width: 90%;
-
       height: 400px;
     }
   </style>
@@ -35,6 +34,14 @@
   top:50%;
   transform: translate(0, -50%);
 }
+#demo{
+  padding:0 5em 0 5em;
+	float:left;
+}
+.input-group{
+  padding-right:5em;
+  padding-left:1em;
+}
 h1 {
     position: relative;
     text-align: center;
@@ -42,13 +49,13 @@ h1 {
 }
 </style>
   <body>
-    <h1>Aeolian Mirror</h1>
+    <h1>Aeolian Map</h1>
     <div id="main">
     	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -78,11 +85,11 @@ h1 {
 </nav>
     </div>
 <div id='demo'></div>
+<div class="input-group">
+  <input id= "address" type="text" class="form-control" placeholder="Shanghai" aria-describedby="basic-addon2">
+  <span class="input-group-addon" id="basic-addon2">Search</span>
+</div>
 <div id='map'></div>
-    <div id="floating-panel">
-      <input id="address" type="textbox" value="Sydney, NSW">
-      <input id="submit" type="button" value="Geocode">
-    </div>
 <script>
    var map;
   var lat = 40;
@@ -96,8 +103,8 @@ h1 {
       }
   }
    function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
+      x.innerHTML = "Current Latitude: " + position.coords.latitude + 
+      "<br>Current Longitude: " + position.coords.longitude;
       lat = position.coords.latitude;
       lng = position.coords.longitude;
       console.log("after lat", lat, "lng" ,lng)
@@ -119,8 +126,10 @@ h1 {
     });
     var greenIcon = new LeafIcon({iconUrl: 'static/Bulbasaur.png'}),
       yellowIcon = new LeafIcon({iconUrl: 'static/Muk1.png'}),
-      orangeIcon = new LeafIcon({iconUrl: 'static/Gastly.png'});
+      orangeIcon = new LeafIcon({iconUrl: 'static/Gastly.png'}),
+	pikachuIc = new LeafIcon({iconUrl:'static/Pikachu.png'});
     L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
+	L.marker([31.233501,121.412540], {icon: pikachuIc}).bindPopup("Clean Fresh Air at Global Harbor").addTo(map);
     L.marker([lat-0.008, lng-0.089], {icon: yellowIcon}).bindPopup("Average Air at Home").addTo(map);
     L.marker([lat+0.015, lng+0.007], {icon: orangeIcon}).bindPopup("Some Air Pollution at Laifushi Plaza.").addTo(map);
 
@@ -131,7 +140,7 @@ h1 {
       function initMap() {
         var geocoder = new google.maps.Geocoder();
 
-        document.getElementById('submit').addEventListener('click', function() {
+        document.getElementById("basic-addon2").addEventListener('click', function() {
           geocodeAddress(geocoder, map);
         });
       }
