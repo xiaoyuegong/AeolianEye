@@ -154,19 +154,19 @@ h1 {
 
   var console_data = function(e) {
     $.get('/data', function (newdata) {
-      var newresults = newdata['results']);
+      var newresults = newdata['results'];
       //console.log(newdata);
       console.log("latest");
-      console.log(newresults[1]);
+      console.log(newresults[2]);
     //console.log(newdata[newdata.length-1].data);
-      for(i = 0; i < newdata[newdata.length-1].data-100; i= i + 5){
-        gastlyArr.push(new newGastly());
-        //gastlyArr.push(new newGastly());
-      }
-      for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
-        bulbasaurArr.push(new newBulbasaur());
-        bulbasaurArr.push(new newBulbasaur());
-        bulbasaurArr.push(new newBulbasaur());
+      // for(i = 0; i < newdata[newdata.length-1].data-100; i= i + 5){
+      //   gastlyArr.push(new newGastly());
+      //   //gastlyArr.push(new newGastly());
+      // }
+      // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
+      //   bulbasaurArr.push(new newBulbasaur());
+      //   bulbasaurArr.push(new newBulbasaur());
+      //   bulbasaurArr.push(new newBulbasaur());
         //gastlyArr.push(new newGastly());
       }
     });
