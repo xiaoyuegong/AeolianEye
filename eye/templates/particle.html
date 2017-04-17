@@ -97,21 +97,7 @@ function draw() {
     //drawVector(wind, createVector(width/2,50,0),500);
 }
 
-/**
- *  This function draws an arrow showing the direction our "wind" is blowing.
- */
-function drawVector(v,loc,scale){
-    push();
-    var arrowsize = 4;
-    translate(loc.x,loc.y);
-    stroke(255);
-    rotate(v.heading());
-    var len = v.mag() * scale;
-    line(0,0,len,0);
-    line(len,0,len-arrowsize,+arrowsize/2);
-    line(len,0,len-arrowsize,-arrowsize/2);
-    pop();
-}
+
 //========= PARTICLE SYSTEM ===========
 
 /**
@@ -122,7 +108,6 @@ function drawVector(v,loc,scale){
  * @constructor
  */
 var ParticleSystem = function(num,v,img_) {
-
     this.particles = [];
     this.origin = v.copy(); // we make sure to copy the vector value in case we accidentally mutate the original by accident
     this.img = img_
@@ -130,7 +115,6 @@ var ParticleSystem = function(num,v,img_) {
         this.particles.push(new Particle(this.origin,this.img));
     }
 };
-
 /**
  * This function runs the entire particle system.
  */
@@ -140,12 +124,10 @@ ParticleSystem.prototype.run = function() {
     // You may see <variable>.length in a for loop, from time to time but
     // we cache it here because otherwise the length is re-calculated for each iteration of a loop
     var len = this.particles.length;
-
     //loop through and run particles
     for (var i = len - 1; i >= 0; i--) {
         var particle = this.particles[i];
         particle.run();
-
         // if the particle is dead, we remove it.
         // javascript arrays don't have a "remove" function but "splice" works just as well.
         // we feed it an index to start at, then how many numbers from that point to remove.
@@ -165,7 +147,6 @@ ParticleSystem.prototype.applyForce = function(dir) {
         this.particles[i].applyForce(dir);
     }
 }
-
 /**
  * Adds a new particle to the system at the origin of the system and with
  * the originally set texture.
@@ -187,7 +168,6 @@ var Particle = function (pos, img_) {
     this.lifespan = 100.0;
     this.texture = img_;
 }
-
 /**
  *  Simulataneously updates and displays a particle.
  */
@@ -230,7 +210,7 @@ Particle.prototype.isDead = function () {
 Particle.prototype.update = function() {
     this.vel.add(this.acc);
     this.loc.add(this.vel);
-    this.lifespan -= 2.5;
+    this.lifespan -= 5;
     this.acc.mult(0);
 }
     </script>
