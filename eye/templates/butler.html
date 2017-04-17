@@ -13,17 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/addons/p5.dom.min.js"></script>
     <script type="text/javascript"
   src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-  <style>
-    #map {
-      margin: auto;
-      width: 90%;
-
-      height: 400px;
-    }
-  </style>
 </head>
   </head>
 <style type="text/css">
@@ -31,8 +20,9 @@
   position: relative;
 }
 #video{
+   margin-top:20em;
   position: absolute;
-  top:50%;
+  top:60%;
   transform: translate(0, -50%);
 }
 h1 {
@@ -42,9 +32,9 @@ h1 {
 }
 </style>
   <body>
-    <h1>Aeolian Butler</h1>
+    <h1>Aeolian Eye</h1>
     <div id="main">
-    	<nav class="navbar navbar-default">
+      <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -54,14 +44,14 @@ h1 {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" id="refre">Refresh</a>
+      <a class="navbar-brand" onclick = "location.reload()" id="refre">Aeolian</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ><a href="https://aeolianair.com/map">Map</a></li>
-        <li class="active"><a href="/butler"> Butler </a><span class="sr-only">(current)</span></li>
-        <li ><a href="/mirror">Mirror</a></li>
+        <li><a href="https://aeolianair.com/map">Map</a></li>
+        <li ><a href="https://aeolianair.com/butler">Butler</a></li>
+        <li class="active"><a href="https://aeolianair.com/butler">Reality<span class="sr-only">(current)</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -77,74 +67,24 @@ h1 {
   </div><!-- /.container-fluid -->
 </nav>
     </div>
-<div id='demo'></div>
-<div id='map'></div>
-<script>
-  var lat = 40;
-  var lng = 40;
-  var x = document.getElementById("demo");
-  function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-  }
-   function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
-      lat = position.coords.latitude;
-      lng = position.coords.longitude;
-      console.log("after lat", lat, "lng" ,lng)
-    var map = L.map('map').setView([lat, lng], 13);
-      // alert(lat);
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    var LeafIcon = L.Icon.extend({
-      options: {
-        shadowUrl: '',
-        iconSize:     [60, 60],
-        iconAnchor:   [30, 50],
-        popupAnchor:  [-3, -76]
-      }
-    });
-    var greenIcon = new LeafIcon({iconUrl: 'static/Bulbasaur.png'}),
-      yellowIcon = new LeafIcon({iconUrl: 'static/Muk1.png'}),
-      orangeIcon = new LeafIcon({iconUrl: 'static/Gastly.png'});
-    L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
-    L.marker([lat-0.008, lng-0.089], {icon: yellowIcon}).bindPopup("Average Air at Home").addTo(map);
-    L.marker([lat+0.015, lng+0.007], {icon: orangeIcon}).bindPopup("Some Air Pollution at Laifushi Plaza.").addTo(map);
-
-  }
-  window.onload = function() {
-        getLocation();
-    }
-
-
+<div id="video">
+    <script type="text/javascript">
   var console_data = function(e) {
-    $.get('/data', function (newdata) { 
-      console.log(newdata);
+    $.get('/data', function (newdata) {
+      console.log('new', newdata);
       console.log(newdata[0].data);
     console.log(newdata[newdata.length-1].data);
-        for(i=0; i<newdata.length;i++){
-    console.log("haha"+i);
-
-  }
-
-
-      if(newdata[newdata.length-1].data<100){
+      for(i = 0; i < newdata[newdata.length-1].data-100; i= i + 5){
+        gastlyArr.push(new newGastly());
+        //gastlyArr.push(new newGastly());
       }
-
-
-
-
-
+      for(i = 0; i < 100- newdata[newdata.length-1].data; i = i + 3){
+        bulbasaurArr.push(new newBulbasaur());
+        //gastlyArr.push(new newGastly());
+      }
     });
   };
-
   // setInterval(function () {console.log(1234);}, 100);
-
   $(function() {
     console_data();
     $('#refre').bind('click', console_data());
