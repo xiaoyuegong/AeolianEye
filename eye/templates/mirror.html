@@ -159,10 +159,14 @@ h1 {
       console.log("latest");
       console.log(newresults[newresults.length-1].data);
     //console.log(newdata[newdata.length-1].data);
-      for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 3){
+    if(newresults[newresults.length-1].data>130){
+      for(i = 0; i < newresults[newresults.length-1].data-110; i= i + 5){
         gastlyArr.push(new newGastly());
         //gastlyArr.push(new newGastly());
       }
+    }else{
+      bulbasaurArr.push(new newBulbasaur());
+    }
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
       //   bulbasaurArr.push(new newBulbasaur());
