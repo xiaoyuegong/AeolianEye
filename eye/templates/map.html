@@ -94,6 +94,10 @@ h1 {
    var map;
   var lat = 40;
   var lng = 40;
+  var greenIcon;
+  var orangeIcon;
+  var yellowIcon;
+  var pikachuIc;
   var x = document.getElementById("demo");
   function getLocation() {
     if (navigator.geolocation) {
@@ -121,9 +125,9 @@ h1 {
         popupAnchor:  [-3, -76]
       }
     });
-    var greenIcon = new LeafIcon({iconUrl: 'static/Bulbasaur.png'}),
-      yellowIcon = new LeafIcon({iconUrl: 'static/Muk1.png'}),
-      orangeIcon = new LeafIcon({iconUrl: 'static/Gastly.png'}),
+    greenIcon = new LeafIcon({iconUrl: 'static/Bulbasaur.png'});
+      yellowIcon = new LeafIcon({iconUrl: 'static/Muk1.png'});
+      orangeIcon = new LeafIcon({iconUrl: 'static/Gastly.png'});
 	pikachuIc = new LeafIcon({iconUrl:'static/Pikachu.png'});
 	L.marker([31.233501,121.412540], {icon: pikachuIc}).bindPopup("Clean Fresh Air at Global Harbor").addTo(map);
     L.marker([lat-0.008, lng-0.089], {icon: yellowIcon}).bindPopup("Average Air at Home").addTo(map);
