@@ -85,10 +85,8 @@ function setup() {
 }
 function draw() {
     background(g);
-
     var dx = map(mouseX,0,width,-0.2,0.2);
     var wind = createVector(dx,0);
-
     ps.applyForce(wind);
     ps.run();
     for (var i = 0; i < 2; i++) {
