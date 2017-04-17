@@ -171,9 +171,11 @@ h1 {
       //}
     });
   }
-  setInterval(function () {console_data();paint();}, 300);
+  setInterval(function () {console_data();}, 300);
 
   $(function() {
+    setup();
+    paint();
     console_data();
     $('#refre').bind('click', console_data());
   });
