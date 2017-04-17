@@ -51,7 +51,7 @@ h1 {
       <ul class="nav navbar-nav">
         <li><a href="https://aeolianair.com/map">Map</a></li>
         <li ><a href="https://aeolianair.com/butler">Butler</a></li>
-        <li class="active"><a href="https://aeolianair.com/butler">Reality<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="https://aeolianair.com/reality">Reality<span class="sr-only">(current)</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -59,7 +59,7 @@ h1 {
           <ul class="dropdown-menu">
             <li><a href="#">My Account</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="https://aeolianair.com/mirror">Help</a></li>
+            <li><a href="https://aeolianair.com/help">Help</a></li>
           </ul>
         </li>
       </ul>
@@ -151,7 +151,7 @@ h1 {
           }
         }
         for(i=0;i<pikachuArr.length; i++){
-        if(mouseX-40 > pikachuArr[i].gx-20 && mouseX-40 < pikachuArr[i].gx+20 && mouseY-50 > pikachuArr[i].gy-20 && mouseY-50 < pikachuArr[i].gy+20){
+        if(mouseX-40 > pikachuArr[i].gx-50 && mouseX-40 < pikachuArr[i].gx+50 && mouseY-50 > pikachuArr[i].gy-50 && mouseY-50 < pikachuArr[i].gy+50){
             if(mukArr.length == 0 && gastlyArr.length==0){
             console.log("Victory");
             pikachuArr[0].gxPlus =0.5; 
@@ -215,7 +215,7 @@ h1 {
         var b = this.gy;
         this.move = function(){
           console.log("moving");
-          this.gyPlus = sin(0.5*this.gx);
+          this.gyPlus = 2*sin(0.5*this.gx);
           image(pikachu, this.gx, this.gy+this.gyPlus, 100, 100);
           this.gx += this.gxPlus;
           if(this.gx > a +80 || this.gx < 0 || this.gx < a -80){
