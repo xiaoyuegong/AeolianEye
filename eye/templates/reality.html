@@ -34,7 +34,7 @@ h1 {
   <body>
     <h1>Aeolian Eye</h1>
     <div id="main">
-    	<nav class="navbar navbar-default">
+      <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -114,7 +114,7 @@ h1 {
         for(i=0;i<mukArr.length; i++){
           mukArr[i].move();
           //console.log(gastlyArr[i].gx+i+":gx");
-        }    
+        }  
       }
       function mouseClicked() {
         console.log("onclicked");
@@ -184,7 +184,6 @@ h1 {
           this.gx += this.gxPlus;
           if(this.gx > width*0.8 || this.gx < 0){
           this.gxPlus *= -1;
-          this.gy = random(height-30);
           }
         }
      }
@@ -214,6 +213,7 @@ h1 {
           this.gx += this.gxPlus;
           if(this.gx > width*0.1 || this.gx < 0){
           this.gxPlus *= -1;
+          this.gy = random(height-30);
           }
         }
      }
