@@ -174,11 +174,12 @@ h1 {
       //console.log(newresults[newresults.length-1].data);
 console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
-marker.setPopupContent( "Clean Air at NYU Shanghai" );
+  marker.setIcon(greenIcon);
+marker.setPopupContent( "Clean Air at NYU Shanghai: " +newresults[newresults.length-1].data );
 }else{
   //tiles.redraw();
-
-marker.setPopupContent( "Hazardous Air at NYU Shanghai" );
+marker.setIcon( orangeIcon);
+marker.setPopupContent( "Hazardous Air at NYU Shanghai: "+ newresults[newresults.length-1].data );
 }
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
