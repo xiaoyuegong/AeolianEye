@@ -69,29 +69,22 @@ h1 {
     </div>
 <div id="demo">
     <script type="text/javascript">
-
-
     // texture for the particle
 var particle_texture = null;
-
 // variable holding our particle system
 var ps = null;
-
 function preload() {
     particle_texture = loadImage("static/dust.png");
 }
-
 function setup() {
-
+    g = loadImage("static/floor.png");
     //set the canvas size
     createCanvas(640,360);
-
     //initialize our particle system
     ps = new ParticleSystem(0,createVector(width / 2, height - 60),particle_texture);
 }
-
 function draw() {
-    background(233);
+    background(g);
 
     var dx = map(mouseX,0,width,-0.2,0.2);
     var wind = createVector(dx,0);
@@ -101,7 +94,6 @@ function draw() {
     for (var i = 0; i < 2; i++) {
         ps.addParticle();
     }
-
     // Draw an arrow representing the wind force
     //drawVector(wind, createVector(width/2,50,0),500);
 }
@@ -115,7 +107,6 @@ function drawVector(v,loc,scale){
     translate(loc.x,loc.y);
     stroke(255);
     rotate(v.heading());
-
     var len = v.mag() * scale;
     line(0,0,len,0);
     line(len,0,len-arrowsize,+arrowsize/2);
@@ -190,10 +181,8 @@ ParticleSystem.prototype.addParticle = function() {
  */
 var Particle = function (pos, img_) {
     this.loc = pos.copy();
-
     var vx = randomGaussian() * 0.3;
     var vy = randomGaussian() * 0.3 - 1.0;
-
     this.vel = createVector(vx,vy);
     this.acc = createVector();
     this.lifespan = 100.0;
