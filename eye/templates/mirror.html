@@ -141,8 +141,13 @@ h1 {
         }
         for(i=0;i<bulbasaurArr.length; i++){
           if(mouseX-40 > bulbasaurArr[i].gx-20 && mouseX-40 < bulbasaurArr[i].gx+20 && mouseY-50 > bulbasaurArr[i].gy-20 && mouseY-50 < bulbasaurArr[i].gy+20){
+            if(mukArr.length == 0 && gastlyArr.length==0){
+            bulbasaurArr.splice(i,1);
+          }
+          else{
             console.log("mistake");
             gastlyArr.push(new newGastly());
+          }
           }
         }
         for(i=0;i<pikachuArr.length; i++){
