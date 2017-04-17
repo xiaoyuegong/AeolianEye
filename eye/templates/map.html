@@ -93,6 +93,7 @@ h1 {
 <script>
    var map;
    var markers = [];
+   var tiles;
   var lat = 40;
   var lng = 40;
   var greenIcon;
@@ -116,7 +117,7 @@ h1 {
       console.log("after lat", lat, "lng" ,lng);
 	   map = L.map('map').setView([lat, lng], 13);
       // alert(lat);
-      L.tileLayer('https\://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      tiles = L.tileLayer('https\://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     LeafIcon = L.Icon.extend({
@@ -146,7 +147,6 @@ h1 {
           geocodeAddress(geocoder, map);
         });
       }
-
       function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
         geocoder.geocode({'address': address}, function(results, status) {
@@ -156,21 +156,17 @@ h1 {
             var newlng = results[0].geometry.location.lng();
             map.setView([newlat, newlng],13);
            // resultsMap.setCenter(results[0].geometry.location);
-
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
         });
       }
-
   var marker1;
   var marker2;
 function onMapClick(e) {
         marker1 = new L.Marker([lat,lng], {icon: yellowIcon});
         marker2 = new L.Marker([lat,lng], {icon: greenIcon});
-      
 };
-
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -179,16 +175,10 @@ function onMapClick(e) {
       //console.log(newresults[newresults.length-1].data);
 console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
- map.addLayer(marker1);
- map.removeLayer(marker2);
-        marker1.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-console.log("good");
+L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai").addTo(map);
 }else{
- map.addLayer(marker2);
- map.removeLayer(marker1);
- marker2.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
- console.log("bad");
+  tiles.redraw();
+L.marker([lat, lng], {icon: orangeIcon}).bindPopup("Hazardous Air at NYU Shanghai").addTo(map);
 }
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
