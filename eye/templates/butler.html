@@ -189,7 +189,7 @@ function draw(){
   background(240);
   noStroke();
   fill(225, 255, 189);
-  rect(0,height*0.6,width,height/2.5);
+  rect(0,height*0.59,width,height/2.5);
   fill(212, 242, 255);
   rect(0,height*0.58,width,height/4);
   fill(255,248,199);
@@ -201,7 +201,7 @@ function draw(){
   stroke(170);
   strokeWeight(5);
   for(i=0;i<50;i++){
-      line(100+20*i, height-p[i], 100+20*(i+1), height-p[i+1]);
+      line(100+width/60*i, height-p[i], 100+width/60*(i+1), height-p[i+1]);
     }
   //line(400, p4, 500, p3);
 
