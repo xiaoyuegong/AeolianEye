@@ -130,6 +130,11 @@ h1 {
 </div>
 <div id="graph">
     <script type="text/javascript">
+  var d = 70;
+  var p1 = d;
+  var p2 = p1+d;
+  var p3 = p2+d;
+  var p4 = p3+d;
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -149,23 +154,16 @@ h1 {
       //}
     });
   }
-  // setInterval(function () {console.log(1234);}, 100);
+  setInterval(function () {console_date;}, 130);
 
   $(function() {
     console_data();
     $('#refre').bind('click', console_data());
   });
 function setup() {
-  
-  var d = 70;
-  var p1 = d;
-  var p2 = p1+d;
-  var p3 = p2+d;
-  var p4 = p3+d;
-
   // Sets the screen to be 720 pixels wide and 400 pixels high
   createCanvas(720, 400);
-  background(0);
+  background(255);
   noSmooth();
 
   translate(140, 0);
