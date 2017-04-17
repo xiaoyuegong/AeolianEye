@@ -40,13 +40,13 @@ h1 {
 .list-group-item{
   display: inline;
   float:left;
-  width:20%;
+  width:22%;
 }
 
 
 #demo{
   margin:auto;
-  width:90%;
+  width:88%;
 }
 </style>
   <body>
@@ -142,10 +142,10 @@ h1 {
 <div id="graph">
     <script type="text/javascript">
   var d = 70;
-  var p1 = d;
-  var p2 = p1+d;
-  var p3 = p2+d;
-  var p4 = p3+d;
+  var p1 ;
+  var p2 ;
+  var p3 ;
+  var p4 ;
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -155,7 +155,10 @@ h1 {
     document.getElementById("data1").innerHTML = newresults[newresults.length-1].data
    document.getElementById("data2").innerHTML = newresults[newresults.length-40].data
     document.getElementById("data3").innerHTML = newresults[newresults.length-50].data
-
+    p1= newresults[newresults.length-50].data;
+    p2 = newresults[newresults.length-50].data;
+    p3 = newresults[newresults.length-50].data;
+    p4 = newresults[newresults.length-50].data;
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
@@ -181,10 +184,10 @@ function setup() {
 
   // Draw gray box
   stroke(153);
-  line(p3, p3, p2, p3);
-  line(p2, p3, p2, p2);
-  line(p2, p2, p3, p2);
-  line(p3, p2, p3, p3);
+  line(100, p1, 200, p2);
+  line(200, p2, 300, p3);
+  line(300, p3, 400, p4);
+  //line(400, p4, 500, p3);
 
   // Draw white points
   stroke(255);
