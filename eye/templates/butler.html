@@ -42,6 +42,7 @@ h1 {
   float:left;
   width:25%;
   padding:1em;
+  margin-bottom:2em; 
 }
 
 
@@ -147,11 +148,7 @@ h1 {
 <div id="graph">
     <script type="text/javascript">
   var d = 70;
-  var p1 ;
-  var p2 ;
-  var p3 ;
-  var p4 ;
-  var bg;
+var p = [];
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -161,11 +158,10 @@ h1 {
     document.getElementById("data1").innerHTML = newresults[newresults.length-1].data;
    document.getElementById("data2").innerHTML = newresults[newresults.length-40].data;
     document.getElementById("data3").innerHTML = newresults[newresults.length-50].data;
-    p1= newresults[newresults.length-1].data;
-    p2 = newresults[newresults.length-2].data;
-    p3 = newresults[newresults.length-3].data;
-    p4 = newresults[newresults.length-4].data;
-    print("The value of x is " + p1 +p2+p3+p4);
+    for(i=0;i<50;i++){
+      p[i]= newresults[newresults.length-50+i].data;
+    }
+
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
@@ -188,17 +184,14 @@ function setup() {
   createCanvas(windowWidth/1.2, windowHeight/2);
 
 }
-function paint(){
+function draw(){
   background(240);
   noSmooth();
-
-  translate(140, 0);
-print("The value of x is " + p1 +p2+p3+p4);
   // Draw gray box
   stroke(153);
-  line(100, newresults[newresults.length-4], 200, p2);
-  line(200, p2, 300, p3);
-  line(300, p3, 400, p4);
+  for(i=0;i<50;i++){
+      line(20*i, p[i], 20*(i+1), p[i+1]);
+    }
   //line(400, p4, 500, p3);
 
   // Draw white points
