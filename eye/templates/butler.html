@@ -50,8 +50,8 @@ h1 {
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="https://aeolianair.com/map">Map</a></li>
-        <li ><a href="https://aeolianair.com/butler">Butler</a></li>
-        <li class="active"><a href="https://aeolianair.com/butler">Reality<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="https://aeolianair.com/butler">Butler<span class="sr-only">(current)</span></a></li>
+        <li ><a href="https://aeolianair.com/butler">Reality</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -74,7 +74,7 @@ h1 {
       console.log('new', newdata);
       console.log(newdata[0].data);
     console.log(newdata[newdata.length-1].data);
-document.getElementById("demo").innerHTML = newdata[newdata.length-1].data;
+    document.getElementById("#demo").innerHTML = newdata[newdata.length-1].data;
     });
   };
   // setInterval(function () {console.log(1234);}, 100);
