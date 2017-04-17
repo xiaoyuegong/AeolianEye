@@ -70,6 +70,7 @@ h1 {
 <div id="demo">
     <script type="text/javascript">
 var system;
+var g = loadImage("static/floor.png");
 
 function setup() {
   createCanvas(720, 400);
@@ -77,7 +78,7 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  background(g);
   system.addParticle();
   system.run();
 }
