@@ -161,34 +161,39 @@ h1 {
         });
       }
 
-
   var console_data = function(e) {
-    $.get('/data', function (newdata) { 
-      console.log(newdata);
-      console.log(newdata[0].data);
-    console.log(newdata[newdata.length-1].data);
-        for(i=0; i<newdata.length;i++){
-    console.log("haha"+i);
+    $.get('/data', function (newdata) {
+      var newresults = newdata['results'];
+      //console.log(newdata);
+      //console.log("latest");
+      //console.log(newresults[newresults.length-1].data);
+    document.getElementById("data1").innerHTML = newresults[newresults.length-1].data;
+   document.getElementById("data2").innerHTML = newresults[newresults.length-40].data;
+    document.getElementById("data3").innerHTML = newresults[newresults.length-50].data;
+    for(i=0;i<50;i++){
+      p[i]= newresults[newresults.length-50+i].data;
+      q[i]= newresults[newresults.length-100+i].data;
+      r[i]= newresults[newresults.length-200+i].data;
+    }
 
-  }
-
-
-      if(newdata[newdata.length-1].data<100){
-      }
-
-
-
-
-
+    //console.log(newdata[newdata.length-1].data);
+      // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
+      //   bulbasaurArr.push(new newBulbasaur());
+      //   bulbasaurArr.push(new newBulbasaur());
+      //   bulbasaurArr.push(new newBulbasaur());
+        //gastlyArr.push(new newGastly());
+      //}
     });
-  };
-
-  // setInterval(function () {console.log(1234);}, 100);
+  }
+  setInterval(function () {console_data();}, 500);
 
   $(function() {
+    setup();
+    paint();
     console_data();
     $('#refre').bind('click', console_data());
   });
+  // setInterval(function () {console.log(1234);}, 100);
     </script>
         <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD577pkBRsSInQfUBqIjERhWFixdt4FEqw&callback=initMap">
