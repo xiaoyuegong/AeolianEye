@@ -182,11 +182,13 @@ if(newresults[newresults.length-1].data<130){
  map.addLayer(marker1);
  map.removeLayer(marker2);
         marker1.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
+console.log("good");
 }else{
  map.addLayer(marker2);
  map.removeLayer(marker1);
  marker2.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+ console.log("bad");
 }
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
