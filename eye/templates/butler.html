@@ -177,7 +177,7 @@ var can;
       //}
     });
   }
-  setInterval(function () {console_data();}, 300);
+  setInterval(function () {console_data();}, 500);
 
   $(function() {
     setup();
@@ -205,7 +205,7 @@ function draw(){
   // Draw gray box;
   fill(0);
 textSize(28);
-text("Trend in past 24 hrs", 10, 30);
+text("Trend in past 12 hrs", 10, 30);
   strokeWeight(5);
   stroke(170);
   for(i=0;i<50;i++){
