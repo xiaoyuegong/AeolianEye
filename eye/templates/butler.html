@@ -148,11 +148,9 @@ h1 {
 </div>
 <div id="graph">
     <script type="text/javascript">
-  var d = 70;
 var p = [];
 var q = [];
 var r = [];
-var can;
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -180,14 +178,12 @@ var can;
   setInterval(function () {console_data();}, 500);
 
   $(function() {
-    setup();
-    paint();
     console_data();
     $('#refre').bind('click', console_data());
   });
 function setup() {
   // Sets the screen to be 720 pixels wide and 400 pixels high
-  can=createCanvas(windowWidth, windowHeight/2.4);
+  createCanvas(windowWidth, windowHeight/2.4);
 
 }
 function draw(){
