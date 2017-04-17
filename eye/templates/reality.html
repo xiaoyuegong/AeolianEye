@@ -194,8 +194,6 @@ h1 {
         this.gx = random(width*0.8);
         this.gy = random(100);
         this.gxPlus = 0.01+random(0.8);
-        var a = this.gx;
-        var b = this.gy;
         this.move = function(){
           this.gyPlus = sin(0.5*this.gx);
           image(bulbasaur, this.gx, this.gy+this.gyPlus, 100, 100);
@@ -210,6 +208,8 @@ h1 {
         this.gx = random(width*0.1);
         this.gy = random(100);
         this.gxPlus = 0.01+random(0.8);
+        var a = this.gx;
+        var b = this.gy;
         this.move = function(){
           this.gyPlus = sin(0.5*this.gx);
           image(pikachu, this.gx, this.gy+this.gyPlus, 100, 100);
