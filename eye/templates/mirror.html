@@ -95,8 +95,6 @@ h1 {
         pikachu = loadImage("static/Pikachu.png");
         videop.hide();
         //gastlyArr.push(new newGastly());
-        gastlyArr.push(new newGastly());
-        mukArr.push(new newMuk());
       }
       function draw() {   
         cnv = createCanvas(windowWidth/1.5, windowWidth/2.1);
@@ -108,6 +106,10 @@ h1 {
         }
         for(i=0;i<bulbasaurArr.length; i++){
           bulbasaurArr[i].move();
+          //console.log(gastlyArr[i].gx+i+":gx");
+        }
+        for(i=0;i<mukArr.length; i++){
+          mukArr[i].move();
           //console.log(gastlyArr[i].gx+i+":gx");
         }
       }
@@ -180,12 +182,12 @@ h1 {
       console.log(newresults[newresults.length-1].data);
     //console.log(newdata[newdata.length-1].data);
     if(newresults[newresults.length-1].data>130){
-      for(i = 0; i < newresults[newresults.length-1].data-110; i= i + 5){
+      for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
         gastlyArr.push(new newGastly());
         //gastlyArr.push(new newGastly());
       }
-      if(newresults[newresults.length-1].data>400){
-        image(muk, 20, 20, 100, 100);
+      for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
+        mukArr.push(new newMuk());
       }
     }else{
       console.log("bulba");
