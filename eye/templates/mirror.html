@@ -203,7 +203,7 @@ h1 {
      }
 
     function newPikachu(){
-        this.gx = random(width*0.8);
+        this.gx = random(width*0.1);
         this.gy = random(100);
         this.gxPlus = 0.01+random(0.8);
         this.move = function(){
@@ -224,7 +224,7 @@ h1 {
       console.log("latest");
       console.log(newresults[newresults.length-1].data);
     //console.log(newdata[newdata.length-1].data);
-    if(newresults[newresults.length-1].data>130){
+    if(newresults[newresults.length-1].data>90){
       for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
         gastlyArr.push(new newGastly());
         //gastlyArr.push(new newGastly());
