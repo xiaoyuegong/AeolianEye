@@ -186,9 +186,10 @@ function setup() {
 }
 function draw(){
   background(240);
+  noStroke();
   fill(219, 255, 183);
   rect(0,0,width,height/2);
-  fill(203, 215, 237);
+  fill(212, 242, 255);
   rect(0,height/2,width,height/4);
   fill(255,248,195);
   rect(0,height*3/4,width,height/3);
@@ -198,7 +199,7 @@ function draw(){
   // Draw gray box
   stroke(153);
   for(i=0;i<50;i++){
-      line(50+25*i, p[i], 20*(i+1), p[i+1]);
+      line(100+20*i, p[i], 50+20*(i+1), p[i+1]);
     }
   //line(400, p4, 500, p3);
 
