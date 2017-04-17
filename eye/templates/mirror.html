@@ -142,6 +142,21 @@ h1 {
         }
      }
 
+      function newMuk(){
+        this.gx = random(width*0.8);
+        this.gy = random(100);
+        this.gxPlus = 0.01+random(0.8);
+        this.move = function(){
+          this.gyPlus = sin(0.5*this.gx);
+          image(muk, this.gx, this.gy+this.gyPlus, 100, 100);
+          this.gx += this.gxPlus;
+          if(this.gx > width*0.8 || this.gx < 0){
+          this.gxPlus *= -1;
+          this.gy = random(height-30);
+          }
+        }
+     }
+
       function newBulbasaur(){
         this.gx = random(width*0.8);
         this.gy = random(100);
