@@ -70,14 +70,16 @@ h1 {
 <div id="demo">
     <script type="text/javascript">
 var system;
-var g = loadImage("static/floor.png");
+var g ;
 
 function setup() {
+  g = loadImage("static/floor.png");
   createCanvas(720, 400);
   system = new ParticleSystem(createVector(width/2, 50));
 }
 
 function draw() {
+
   background(g);
   system.addParticle();
   system.run();
