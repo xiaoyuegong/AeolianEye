@@ -167,6 +167,7 @@ h1 {
       //console.log(newdata);
       //console.log("latest");
       //console.log(newresults[newresults.length-1].data);
+console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
       L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
 }else{
@@ -184,8 +185,6 @@ if(newresults[newresults.length-1].data<130){
   setInterval(function () {console_data();}, 500);
 
   $(function() {
-    setup();
-    paint();
     console_data();
     $('#refre').bind('click', console_data());
   });
