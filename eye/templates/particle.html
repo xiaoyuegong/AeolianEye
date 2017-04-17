@@ -77,7 +77,6 @@ var g = null;
 function preload() {
     particle_texture = loadImage("static/dust.png");
     g = loadImage("static/floor.png");
-    g.hide();
 }
 function setup() {
     //set the canvas size
@@ -86,7 +85,7 @@ function setup() {
     ps = new ParticleSystem(0,createVector(width / 2, height - 60),particle_texture);
 }
 function draw() {
-    background(122);
+    background(g);
     var dx = map(mouseX,0,width,-0.2,0.2);
     var wind = createVector(dx,0);
     ps.applyForce(wind);
@@ -94,7 +93,6 @@ function draw() {
     for (var i = 0; i < 2; i++) {
         ps.addParticle();
     }
-    background(g);
     // Draw an arrow representing the wind force
     //drawVector(wind, createVector(width/2,50,0),500);
 }
