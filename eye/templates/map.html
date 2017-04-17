@@ -172,7 +172,6 @@ console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
       marker = L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
 }else{
-  marker.hide();
     marker=L.marker([lat, lng], {icon: orangeIcon}).bindPopup("Hazardous Air at NYU Shanghai").addTo(map);
 }
     //console.log(newdata[newdata.length-1].data);
