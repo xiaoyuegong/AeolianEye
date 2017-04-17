@@ -106,7 +106,6 @@ h1 {
           //console.log(gastlyArr[i].gx+i+":gx");
         }
       }
-
       function mouseClicked() {
         console.log("onclicked");
         console.log(mouseX+"X"+mouseY+"Y");
@@ -117,9 +116,7 @@ h1 {
             console.log("hittarget");
           }
         }
-  
       }
-
       function windowResized() {
         centerCanvas();
       }
@@ -129,7 +126,6 @@ h1 {
         this.gx = random(width*0.8);
         this.gy = random(100);
         this.gxPlus = 0.01+random(0.8);
-
         this.move = function(){
           this.gyPlus = sin(0.5*this.gx);
           image(gastly, this.gx, this.gy+this.gyPlus, 100, 100);
@@ -145,7 +141,6 @@ h1 {
         this.gx = random(width*0.8);
         this.gy = random(100);
         this.gxPlus = 0.01+random(0.8);
-
         this.move = function(){
           this.gyPlus = sin(0.5*this.gx);
           image(bulbasaur, this.gx, this.gy+this.gyPlus, 100, 100);
@@ -155,10 +150,7 @@ h1 {
           this.gy = random(height-30);
           }
         }
-
      }
-
-
 
   var console_data = function(e) {
     $.get('/data', function (newdata) {
@@ -169,7 +161,9 @@ h1 {
         gastlyArr.push(new newGastly());
         //gastlyArr.push(new newGastly());
       }
-      for(i = 0; i < 100- newdata[newdata.length-1].data; i = i + 3){
+      for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
+        bulbasaurArr.push(new newBulbasaur());
+        bulbasaurArr.push(new newBulbasaur());
         bulbasaurArr.push(new newBulbasaur());
         //gastlyArr.push(new newGastly());
       }
