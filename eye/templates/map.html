@@ -131,9 +131,13 @@ h1 {
       yellowIcon = new LeafIcon({iconUrl: 'static/Muk1.png'});
       orangeIcon = new LeafIcon({iconUrl: 'static/Gastly.png'});
 	pikachuIc = new LeafIcon({iconUrl:'static/Pikachu.png'});
-	L.marker([31.233501,121.412540], {icon: pikachuIc}).bindPopup("Clean Fresh Air at Global Harbor").addTo(map);
-    L.marker([lat-0.008, lng-0.089], {icon: yellowIcon}).bindPopup("Average Air at Home").addTo(map);
-    L.marker([lat+0.015, lng+0.007], {icon: orangeIcon}).bindPopup("Some Air Pollution at Laifushi Plaza.").addTo(map);
+  koffIc = new LeafIcon({iconUrl:'static/Koffing.png'});
+	L.marker([31.233501,121.412540], {icon: pikachuIc}).bindPopup("Good Air at Global Harbor").addTo(map);
+    L.marker([lat-0.008, lng-0.089], {icon: yellowIcon}).bindPopup("Some Air Pollution at Prince Mall").addTo(map);
+    L.marker([lat+0.015, lng+0.007], {icon: orangeIcon}).bindPopup("Hazardous Air at Mr.Barbecue").addTo(map);
+        L.marker([lat+0.015, lng-0.027], {icon: koffIc}).bindPopup("Combustible Gas concentration at Laifushi Plaza").addTo(map);
+        L.marker([lat+0.015, lng+0.003], {icon: orangeIcon}).bindPopup("Some Air Pollution at IFC Cinema").addTo(map);
+ L.marker([lat-0.001 lng+0.0017], {icon: greenIcon}).bindPopup("Clean Air at Oriental Pearl TV Tower").addTo(map);
      marker = new L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai").addTo(map);
 
   }
