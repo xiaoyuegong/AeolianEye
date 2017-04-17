@@ -99,6 +99,7 @@ h1 {
       <th>Name</th>
       <th>Location</th>
       <th>Data</th>
+      <th>Main Pollutants</th>
     </tr>
   </thead>
   <tbody>
@@ -107,18 +108,21 @@ h1 {
       <td>TomLovesJerry</td>
       <td>Dining Room</td>
       <td id ="data1"></td>
+      <td>Combustible Gas</td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Aeolian_98</td>
       <td>Bedroom</td>
       <td id="data2"></td>
+      <td>Dust</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Pikachuuu</td>
       <td>Study Room</td>
       <td id="data3"></td>
+      <td>Dust</td>
     </tr>
         <tr>
       <th scope="row">4</th>
@@ -181,12 +185,11 @@ h1 {
   });
 function setup() {
   // Sets the screen to be 720 pixels wide and 400 pixels high
-  createCanvas(720, 400);
-  bg = loadImage("static/chart.png");
+  createCanvas(windowWidth/1.2, windowHeight/2);
 
 }
 function paint(){
-  background(bg);
+  background(240);
   noSmooth();
 
   translate(140, 0);
@@ -210,6 +213,8 @@ print("The value of x is " + p1 +p2+p3+p4);
 
 
     </script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </div>
