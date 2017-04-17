@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/addons/p5.dom.min.js"></script>
     <script type="text/javascript"
-  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
@@ -167,7 +167,6 @@ h1 {
       //console.log(newdata);
       //console.log("latest");
       //console.log(newresults[newresults.length-1].data);
-console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
       L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
 }else{
@@ -185,6 +184,8 @@ if(newresults[newresults.length-1].data<130){
   setInterval(function () {console_data();}, 500);
 
   $(function() {
+    setup();
+    paint();
     console_data();
     $('#refre').bind('click', console_data());
   });
