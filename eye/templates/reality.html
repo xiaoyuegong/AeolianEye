@@ -200,11 +200,8 @@ h1 {
           this.gyPlus = sin(0.5*this.gx);
           image(bulbasaur, this.gx, this.gy+this.gyPlus, 100, 100);
           this.gx += this.gxPlus;
-          if(this.gx > a +80 || this.gx < 0 || this.gx < a -80){
+          if(this.gx > width*0.8 || this.gx < 0){
           this.gxPlus *= -1;
-          }
-        if(this.gy > b +80 || this.gy < 0 || this.gy < b -80){
-          this.gyPlus *= -1;
           }
         }
      }
@@ -217,8 +214,11 @@ h1 {
           this.gyPlus = sin(0.5*this.gx);
           image(pikachu, this.gx, this.gy+this.gyPlus, 100, 100);
           this.gx += this.gxPlus;
-          if(this.gx > width*0.1 || this.gx < 0){
+          if(this.gx > a +80 || this.gx < 0 || this.gx < a -80){
           this.gxPlus *= -1;
+          }
+        if(this.gy > b +80 || this.gy < 0 || this.gy < b -80){
+          this.gyPlus *= -1;
           }
         }
      }
