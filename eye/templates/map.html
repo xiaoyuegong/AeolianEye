@@ -92,7 +92,7 @@ h1 {
 <div id='map'></div>
 <script>
    var map;
-   var tiles;
+     var marker;
   var lat = 40;
   var lng = 40;
   var greenIcon;
@@ -134,6 +134,7 @@ h1 {
 	L.marker([31.233501,121.412540], {icon: pikachuIc}).bindPopup("Clean Fresh Air at Global Harbor").addTo(map);
     L.marker([lat-0.008, lng-0.089], {icon: yellowIcon}).bindPopup("Average Air at Home").addTo(map);
     L.marker([lat+0.015, lng+0.007], {icon: orangeIcon}).bindPopup("Some Air Pollution at Laifushi Plaza.").addTo(map);
+     marker = new L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai").addTo(map);
 
   }
   window.onload = function() {
@@ -160,11 +161,7 @@ h1 {
           }
         });
       }
-  var marker;
 
-function onMapClick(e) {
-        marker = new L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai").addTo(map);
-};
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
