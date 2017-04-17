@@ -154,8 +154,9 @@ h1 {
 
   var console_data = function(e) {
     $.get('/data', function (newdata) {
-      console.log('new', newdata);
-      console.log("latest", newdata[2]);
+      console.log(newdata);
+      console.log("latest");
+      console.log(newdata[1]);
     console.log(newdata[newdata.length-1].data);
       for(i = 0; i < newdata[newdata.length-1].data-100; i= i + 5){
         gastlyArr.push(new newGastly());
