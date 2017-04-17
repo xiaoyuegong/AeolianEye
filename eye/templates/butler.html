@@ -68,28 +68,49 @@ h1 {
 </nav>
     </div>
 <div id="demo">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Aeolian 1</td>
+      <td>Dining Room</td>
+      <td id ="data1"></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Aeolian 2</td>
+      <td>Bedroom</td>
+      <td id="data2"></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Aeolian3</td>
+      <td>Study Room</td>
+      <td id="data3"></td>
+    </tr>
+  </tbody>
+</table>
     <script type="text/javascript">
-var console_data = function(e) {
+  var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
       //console.log(newdata);
       console.log("latest");
       console.log(newresults[newresults.length-1].data);
+
+    document.getElementById("data1").innerHTML = newresults[newresults.length-1].data
+   document.getElementById("data2").innerHTML = newresults[newresults.length-3].data
+    document.getElementById("data3").innerHTML = newresults[newresults.length-20].data
+
     //console.log(newdata[newdata.length-1].data);
-    if(newresults[newresults.length-1].data>130){
-      for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
-        gastlyArr.push(new newGastly());
-        //gastlyArr.push(new newGastly());
-      }
-      for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
-        mukArr.push(new newMuk());
-      }
-    }else{
-      console.log("bulba");
-      for(i = 0; i < 120 - newresults[newresults.length-1].data; i= i + 3){
-      bulbasaurArr.push(new newBulbasaur());
-      }
-    }
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
       //   bulbasaurArr.push(new newBulbasaur());
@@ -104,6 +125,7 @@ var console_data = function(e) {
     console_data();
     $('#refre').bind('click', console_data());
   });
+
 
 
     </script>
