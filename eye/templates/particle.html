@@ -119,7 +119,6 @@ var ParticleSystem = function(num,v,img_) {
  * This function runs the entire particle system.
  */
 ParticleSystem.prototype.run = function() {
-
     // cache length of the array we're going to loop into a variable
     // You may see <variable>.length in a for loop, from time to time but
     // we cache it here because otherwise the length is re-calculated for each iteration of a loop
@@ -161,8 +160,8 @@ ParticleSystem.prototype.addParticle = function() {
  */
 var Particle = function (pos, img_) {
     this.loc = pos.copy();
-    var vx = randomGaussian() * 0.3;
-    var vy = randomGaussian() * 0.3 - 1.0;
+    var vx = randomGaussian() * 3;
+    var vy = randomGaussian() * 3 - 1.0;
     this.vel = createVector(vx,vy);
     this.acc = createVector();
     this.lifespan = 50.0;
