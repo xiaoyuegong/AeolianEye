@@ -115,7 +115,10 @@ h1 {
           mukArr[i].move();
           //console.log(gastlyArr[i].gx+i+":gx");
         }  
-        image(pikachu, pikachuArr[0].gx, pikachuArr[0].gy, 100, 100);
+        for(i=0;i<pikachuArr.length; i++){
+          pikachuArr[i].move();
+          //console.log(gastlyArr[i].gx+i+":gx");
+        } 
       }
       function mouseClicked() {
         console.log("onclicked");
@@ -151,7 +154,7 @@ h1 {
         if(mouseX-40 > pikachuArr[i].gx-20 && mouseX-40 < pikachuArr[i].gx+20 && mouseY-50 > pikachuArr[i].gy-20 && mouseY-50 < pikachuArr[i].gy+20){
             if(mukArr.length == 0 && gastlyArr.length==0){
             console.log("Victory");
-            pikachuArr[0].move();
+            pikachuArr.push(new newPikachu());
           }
         }
       }
