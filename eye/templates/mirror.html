@@ -79,6 +79,7 @@ h1 {
       var bulbasaur;
       var pikachu;
       var mukArr = [];
+      var pikachuArr = [];
       function centerCanvas() {
         var x = (windowWidth - width) / 2;
         var y = windowHeight * 0.2;
@@ -113,6 +114,10 @@ h1 {
           mukArr[i].move();
           //console.log(gastlyArr[i].gx+i+":gx");
         }
+        for(i=0;i<pikachuArr.length; i++){
+          pikachuArr[i].move();
+          //console.log(gastlyArr[i].gx+i+":gx");
+        }      
       }
       function mouseClicked() {
         console.log("onclicked");
@@ -133,6 +138,16 @@ h1 {
             }
           }
         }
+        for(i=0;i<bulbasaurArr.length; i++){
+          if(mouseX-40 > bulbasaurArr[i].gx-20 && mouseX-40 < bulbasaurArr[i].gx+20 && mouseY-50 > bulbasaurArr[i].gy-20 && mouseY-50 < bulbasaurArr[i].gy+20){
+            console.log("mistake");
+            gastlyArr.push(new newGastly());
+          }
+        }
+        if(mouseX-40 > pikachu.gx-20 && mouseX-40 < pikachu.gx+20 && mouseY-50 > pikachu.gy-20 && mouseY-50 < pikachu.gy+20){
+            console.log("mistake");
+            location.reload();
+          }
       }
       function windowResized() {
         centerCanvas();
@@ -184,6 +199,21 @@ h1 {
         }
      }
 
+    function newPikachu(){
+        this.gx = random(width*0.8);
+        this.gy = random(100);
+        this.gxPlus = 0.01+random(0.8);
+        this.move = function(){
+          this.gyPlus = sin(0.5*this.gx);
+          image(pikachu, this.gx, this.gy+this.gyPlus, 100, 100);
+          this.gx += this.gxPlus;
+          if(this.gx > width*0.8 || this.gx < 0){
+          this.gxPlus *= -1;
+          this.gy = random(height-30);
+          }
+        }
+     }
+
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -204,7 +234,7 @@ h1 {
       for(i = 0; i < 110 - newresults[newresults.length-1].data; i= i + 3){
       bulbasaurArr.push(new newBulbasaur());
       }
-      image(pikachu, 20, 20, 100, 100);
+      pikachuArr.push(new newPikachu());
     }
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
