@@ -92,6 +92,7 @@ h1 {
 <div id='map'></div>
 <script>
    var map;
+   var marker;
   var lat = 40;
   var lng = 40;
   var greenIcon;
@@ -164,18 +165,15 @@ h1 {
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
-      var marker = L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
       //console.log(newdata);
       //console.log("latest");
       //console.log(newresults[newresults.length-1].data);
 console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
-  marker.hide();
       marker = L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
 }else{
   marker.hide();
     marker=L.marker([lat, lng], {icon: orangeIcon}).bindPopup("Hazardous Air at NYU Shanghai").addTo(map);
-    map.addLayer(marker);
 }
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
