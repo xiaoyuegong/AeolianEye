@@ -41,7 +41,7 @@ def send_mirror():
         return send_from_directory("templates/", "mirror.html")
 
 @app.route("/particle")
-def send_mirror():
+def send_particle():
         return send_from_directory("templates/", "particle.html")
 
 @app.route("/data")
