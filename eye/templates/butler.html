@@ -71,8 +71,10 @@ h1 {
     <script type="text/javascript">
   var console_data = function(e) {
     $.get('/data', function (newdata) {
-      console.log('new', newdata);
-      console.log(newdata[0].data);
+      console.log(newdata['results']);
+      console.log("new");
+      console.log(newdata['results'][0]);
+      console.log("latest");
     console.log(newdata[newdata.length-1].data);
     document.getElementById("#demo").innerHTML = newdata[newdata.length-1].data;
     });
