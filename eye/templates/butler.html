@@ -102,21 +102,28 @@ table{
     </tr>
         <tr>
       <th scope="row">4</th>
-      <td><div class="input-group">
-  <input type="text" class="form-control" placeholder="Device Name" aria-describedby="basic-addon2">
+     <td><p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Add a Home Device
+  </a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-block">
+    <div class="input-group">
+     <input type="text" class="form-control" placeholder="Device ID" aria-describedby="basic-addon2">
+      <input type="text" class="form-control" placeholder="Device Name" aria-describedby="basic-addon2">
+       <input type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2">
+     <span class="input-group-addon" id="basic-addon2">Add!</span>
+    </div>
+  </div>
 </div>
-</td>
-      <td>
-  <input type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2">
-      </td>
-      <td>  <input type="text" class="form-control" placeholder="Device ID" aria-describedby="basic-addon2">
+     </td>
     </tr>
   </tbody>
 </table>
-<div class="input-group">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-  <span class="input-group-addon" id="basic-addon2">Add!</span>
-</div>
 
     <script type="text/javascript">
   var console_data = function(e) {
