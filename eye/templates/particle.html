@@ -85,7 +85,7 @@ function setup() {
     ps = new ParticleSystem(0,createVector(width / 2, height - 60),particle_texture);
 }
 function draw() {
-    background(g);
+    background(122);
     var dx = map(mouseX,0,width,-0.2,0.2);
     var wind = createVector(dx,0);
     ps.applyForce(wind);
@@ -176,7 +176,6 @@ Particle.prototype.run = function() {
     this.update();
     this.render();
 }
-
 /**
  *  A function to display a particle
  */
