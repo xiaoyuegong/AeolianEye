@@ -94,6 +94,7 @@ h1 {
         bulbasaur = loadImage("static/Bulbasaur.png");
         pikachu = loadImage("static/Pikachu.png");
         videop.hide();
+        bulbasaurArr.push(new newBulbasaur());
         //gastlyArr.push(new newGastly());
       }
       function draw() {   
@@ -190,7 +191,7 @@ h1 {
       console.log("latest");
       console.log(newresults[newresults.length-1].data);
     //console.log(newdata[newdata.length-1].data);
-    if(newresults[newresults.length-1].data>100){
+    if(newresults[newresults.length-1].data>130){
       for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
         gastlyArr.push(new newGastly());
         //gastlyArr.push(new newGastly());
