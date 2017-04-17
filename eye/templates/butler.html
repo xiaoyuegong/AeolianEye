@@ -179,17 +179,18 @@ h1 {
 function setup() {
   // Sets the screen to be 720 pixels wide and 400 pixels high
   createCanvas(720, 400);
+  bg = loadImage("static/chart.png");
 
 }
 function draw(){
-  background(255);
+  background(bg);
   noSmooth();
 
   translate(140, 0);
 print("The value of x is " + p1 +p2+p3+p4);
   // Draw gray box
   stroke(153);
-  line(100, p1, 200, p2);
+  line(100, newresults[newresults.length-4], 200, p2);
   line(200, p2, 300, p3);
   line(300, p3, 400, p4);
   //line(400, p4, 500, p3);
