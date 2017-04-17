@@ -205,15 +205,15 @@ text("Trend in past 12 hrs", 10, 40);
   strokeWeight(5);
   stroke(170);
   for(i=0;i<50;i++){
-      line(150+width/60*i, height-p[i], 150+width/60*(i+1), height-p[i+1]);
+      line(150+width/60*i, height-p[i]+5, 150+width/60*(i+1), height-p[i+1])+5;
     }
 stroke(100);
       for(i=0;i<50;i++){
-      line(150+width/60*i, 5+height-q[i], 150+width/60*(i+1), 5+height-q[i+1]);
+      line(150+width/60*i, height-q[i]+5, 150+width/60*(i+1), height-q[i+1]+5);
     }
 stroke(10);
       for(i=0;i<50;i++){
-      line(150+width/60*i, height-r[i], 150+width/60*(i+1), height-r[i+1]);
+      line(150+width/60*i, height-r[i]+5, 150+width/60*(i+1), height-r[i+1]+5);
     }
       noStroke();
       textSize(19);
