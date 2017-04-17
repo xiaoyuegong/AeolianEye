@@ -92,7 +92,6 @@ h1 {
 <div id='map'></div>
 <script>
    var map;
-   var markers = [];
    var tiles;
   var lat = 40;
   var lng = 40;
@@ -161,11 +160,10 @@ h1 {
           }
         });
       }
-  var marker1;
-  var marker2;
+  var marker;
+
 function onMapClick(e) {
-        marker1 = new L.Marker([lat,lng], {icon: yellowIcon});
-        marker2 = new L.Marker([lat,lng], {icon: greenIcon});
+        marker = new L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai").addTo(map);
 };
   var console_data = function(e) {
     $.get('/data', function (newdata) {
@@ -175,10 +173,11 @@ function onMapClick(e) {
       //console.log(newresults[newresults.length-1].data);
 console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
-L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai").addTo(map);
+marker.setPopupContent( "Clean Air at NYU Shanghai" );
 }else{
-  tiles.redraw();
-L.marker([lat, lng], {icon: orangeIcon}).bindPopup("Hazardous Air at NYU Shanghai").addTo(map);
+  //tiles.redraw();
+
+marker.setPopupContent( "Hazardous Air at NYU Shanghai" );
 }
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
