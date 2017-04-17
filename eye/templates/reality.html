@@ -211,14 +211,17 @@ h1 {
         var a = this.gx;
         var b = this.gy;
         this.move = function(){
+          console.log("moving");
           this.gyPlus = sin(0.5*this.gx);
           image(pikachu, this.gx, this.gy+this.gyPlus, 100, 100);
           this.gx += this.gxPlus;
           if(this.gx > a +80 || this.gx < 0 || this.gx < a -80){
           this.gxPlus *= -1;
+          console.log("moving ha x");
           }
         if(this.gy > b +80 || this.gy < 0 || this.gy < b -80){
           this.gyPlus *= -1;
+          console.log("moving ha y ");
           }
         }
      }
