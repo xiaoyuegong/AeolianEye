@@ -89,10 +89,11 @@ h1 {
         gastly = loadImage("static/Gastly.png");
         muk = loadImage("static/Muk1.png");
         bulbasaur = loadImage("static/Bulbasaur.png");
+        pikachu = loadImage("static/Pikachu.png");
         videop.hide();
         //gastlyArr.push(new newGastly());
         gastlyArr.push(new newGastly());
-        bulbasaurArr.push(new newBulbasaur());
+        mukArr.push(new newMuk());
       }
       function draw() {   
         cnv = createCanvas(windowWidth/1.5, windowWidth/2.1);
@@ -165,9 +166,13 @@ h1 {
         gastlyArr.push(new newGastly());
         //gastlyArr.push(new newGastly());
       }
+      if(newresults[newresults.length-1].data>400){
+        image(muk, 20, 20, 100, 100);
+      }
     }else{
       console.log("bulba");
       bulbasaurArr.push(new newBulbasaur());
+      image(Pikachu, 20, 20, 100, 100);
     }
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
