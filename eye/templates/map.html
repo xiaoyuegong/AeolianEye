@@ -162,6 +162,14 @@ h1 {
         });
       }
 
+  var marker1;
+  var marker2;
+function onMapClick(e) {
+        marker1 = new L.Marker([lat,lng], {icon: yellowIcon});
+        marker2 = new L.Marker([lat,lng], {icon: greenIcon});
+      
+};
+
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -170,16 +178,15 @@ h1 {
       //console.log(newresults[newresults.length-1].data);
 console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
-  markers.splice(0,1);
-      newmarker = L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai");
-      markers.push(newmarker);
+ map.addLayer(marker1);
+ map.removeLayer(marker2);
+        marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
 }else{
-  markers.splice(0,1);
-    newmarker=L.marker([lat, lng], {icon: orangeIcon}).bindPopup("Hazardous Air at NYU Shanghai").addTo(map);
-    markers.push(newmarker);
+ map.addLayer(marker2);
+ map.removeLayer(marker1);
+ marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 }
-markers[0].addTo(map);
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
