@@ -82,7 +82,7 @@ function setup() {
     //set the canvas size
     createCanvas(800,360);
     //initialize our particle system
-    ps = new ParticleSystem(0,createVector(width / 2, height - 60),particle_texture);
+    ps = new ParticleSystem(0,createVector(width / 2, height - 20),particle_texture);
 }
 function draw() {
     background(g);
@@ -210,6 +210,7 @@ Particle.prototype.update = function() {
     this.vel.add(this.acc);
     this.loc.add(this.vel);
     this.lifespan -= 5;
+    console.log(this.lifespan);
     this.acc.mult(0);
 }
     </script>
