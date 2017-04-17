@@ -107,9 +107,6 @@ h1 {
       "<br>Current Longitude: " + position.coords.longitude;
       lat = position.coords.latitude;
       lng = position.coords.longitude;
-      console.log("after lat", lat, "lng" ,lng)
-      lat = position.coords.latitude;
-      lng = position.coords.longitude;
       console.log("after lat", lat, "lng" ,lng);
 	map = L.map('map').setView([lat, lng], 13);
       // alert(lat);
@@ -128,7 +125,6 @@ h1 {
       yellowIcon = new LeafIcon({iconUrl: 'static/Muk1.png'}),
       orangeIcon = new LeafIcon({iconUrl: 'static/Gastly.png'}),
 	pikachuIc = new LeafIcon({iconUrl:'static/Pikachu.png'});
-    L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
 	L.marker([31.233501,121.412540], {icon: pikachuIc}).bindPopup("Clean Fresh Air at Global Harbor").addTo(map);
     L.marker([lat-0.008, lng-0.089], {icon: yellowIcon}).bindPopup("Average Air at Home").addTo(map);
     L.marker([lat+0.015, lng+0.007], {icon: orangeIcon}).bindPopup("Some Air Pollution at Laifushi Plaza.").addTo(map);
@@ -170,12 +166,11 @@ h1 {
     document.getElementById("data1").innerHTML = newresults[newresults.length-1].data;
    document.getElementById("data2").innerHTML = newresults[newresults.length-51].data;
     document.getElementById("data3").innerHTML = newresults[newresults.length-151].data;
-    for(i=0;i<50;i++){
-      p[i]= newresults[newresults.length-50+i].data;
-      q[i]= newresults[newresults.length-100+i].data;
-      r[i]= newresults[newresults.length-200+i].data;
-    }
-
+if(newresults[newresults.length-1].data<130){
+      L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai").addTo(map);
+}else{
+    L.marker([lat, lng], {icon: orangeIcon}).bindPopup("Hazardous Air at NYU Shanghai").addTo(map);
+}
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
