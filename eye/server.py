@@ -40,6 +40,10 @@ def send_help():
 def send_mirror():
         return send_from_directory("templates/", "mirror.html")
 
+@app.route("/particle")
+def send_mirror():
+        return send_from_directory("templates/", "particle.html")
+
 @app.route("/data")
 def dictionary_download():	
 	db = MySQLdb.connect(host="localhost",    # your host, usually localhost
