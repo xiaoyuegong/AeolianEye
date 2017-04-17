@@ -150,6 +150,7 @@ h1 {
     <script type="text/javascript">
   var d = 70;
 var p = [];
+var can;
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
@@ -182,7 +183,7 @@ var p = [];
   });
 function setup() {
   // Sets the screen to be 720 pixels wide and 400 pixels high
-  createCanvas(windowWidth, windowHeight/2.4);
+  can=createCanvas(windowWidth, windowHeight/2.4);
 
 }
 function draw(){
@@ -191,7 +192,7 @@ function draw(){
   fill(225, 255, 189);
   rect(0,height*0.59,width,height/2.5);
   fill(212, 242, 255);
-  rect(0,height*0.58,width,height/4);
+  rect(0,height*0.58,width,height/5);
   fill(255,248,199);
   rect(0,height/3,width,height/3.5);
   fill(255,220,215);
