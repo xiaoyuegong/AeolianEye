@@ -91,7 +91,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    background(233);
 
     var dx = map(mouseX,0,width,-0.2,0.2);
     var wind = createVector(dx,0);
@@ -103,7 +103,7 @@ function draw() {
     }
 
     // Draw an arrow representing the wind force
-    drawVector(wind, createVector(width/2,50,0),500);
+    //drawVector(wind, createVector(width/2,50,0),500);
 }
 
 /**
