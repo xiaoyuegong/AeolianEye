@@ -36,9 +36,9 @@ def send_butler():
 def send_help():
         return send_from_directory("templates/", "help.html")
 
-@app.route("/mirror")
+@app.route("/reality")
 def send_mirror():
-        return send_from_directory("templates/", "mirror.html")
+        return send_from_directory("templates/", "reality.html")
 
 @app.route("/particle")
 def send_particle():
