@@ -73,12 +73,12 @@ h1 {
 var particle_texture = null;
 // variable holding our particle system
 var ps = null;
-var g;
+var g = null;
 function preload() {
     particle_texture = loadImage("static/dust.png");
+    g = loadImage("static/floor.png");
 }
 function setup() {
-    g = loadImage("static/floor.png");
     //set the canvas size
     createCanvas(640,360);
     //initialize our particle system
