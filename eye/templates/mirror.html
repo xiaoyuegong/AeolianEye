@@ -210,7 +210,7 @@ h1 {
           this.gyPlus = sin(0.5*this.gx);
           image(pikachu, this.gx, this.gy+this.gyPlus, 100, 100);
           this.gx += this.gxPlus;
-          if(this.gx > width*0.8 || this.gx < 0){
+          if(this.gx > width*0.1 || this.gx < 0){
           this.gxPlus *= -1;
           this.gy = random(height-30);
           }
