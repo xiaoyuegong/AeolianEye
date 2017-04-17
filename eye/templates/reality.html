@@ -154,6 +154,7 @@ h1 {
           }
         }
       }
+    }
       function windowResized() {
         centerCanvas();
       }
@@ -213,7 +214,6 @@ h1 {
           this.gx += this.gxPlus;
           if(this.gx > width*0.1 || this.gx < 0){
           this.gxPlus *= -1;
-          this.gy = random(height-30);
           }
         }
      }
@@ -238,13 +238,7 @@ h1 {
       for(i = 0; i < 120 - newresults[newresults.length-1].data; i= i + 3){
       bulbasaurArr.push(new newBulbasaur());
       }
-    }
-      // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
-      //   bulbasaurArr.push(new newBulbasaur());
-      //   bulbasaurArr.push(new newBulbasaur());
-      //   bulbasaurArr.push(new newBulbasaur());
-        //gastlyArr.push(new newGastly());
-      //}
+      }
     });
   }
   // setInterval(function () {console.log(1234);}, 100);
@@ -253,8 +247,6 @@ h1 {
     console_data();
     $('#refre').bind('click', console_data());
   });
-
-
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
