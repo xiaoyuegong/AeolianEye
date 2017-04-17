@@ -169,7 +169,7 @@ h1 {
       //console.log("latest");
       //console.log(newresults[newresults.length-1].data);
 console.log("latest"+newresults[newresults.length-1].data);
-if(newresults[newresults.length-1].data<130){\
+if(newresults[newresults.length-1].data<130){
   markers.splice(0,1);
       newmarker = L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Fresh Air at NYU Shanghai");
       markers.push(newmarker);
