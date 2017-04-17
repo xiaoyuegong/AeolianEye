@@ -67,21 +67,14 @@ h1 {
   </div><!-- /.container-fluid -->
 </nav>
     </div>
-<div id="video">
+<div id="demo">
     <script type="text/javascript">
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       console.log('new', newdata);
       console.log(newdata[0].data);
     console.log(newdata[newdata.length-1].data);
-      for(i = 0; i < newdata[newdata.length-1].data-100; i= i + 5){
-        gastlyArr.push(new newGastly());
-        //gastlyArr.push(new newGastly());
-      }
-      for(i = 0; i < 100- newdata[newdata.length-1].data; i = i + 3){
-        bulbasaurArr.push(new newBulbasaur());
-        //gastlyArr.push(new newGastly());
-      }
+document.getElementById("demo").innerHTML = newdata[newdata.length-1].data;
     });
   };
   // setInterval(function () {console.log(1234);}, 100);
