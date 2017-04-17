@@ -72,17 +72,17 @@ h1 {
   var console_data = function(e) {
     $.get('/data', function (newdata) {
       console.log(newdata['results']);
-      console.log("new");
-      console.log(newdata['results'][0]);
-      console.log("latest");
-    console.log(newdata[newdata.length-1].data);
-    document.getElementById("#demo").innerHTML = newdata[newdata.length-1].data;
+      //console.log("new");
+      //console.log(newdata['results'][0]);
+      //console.log("latest");
+    //console.log(newdata[newdata.length-1].data);
+    //document.getElementById("#demo").innerHTML = newdata[newdata.length-1].data;
     });
   };
   // setInterval(function () {console.log(1234);}, 100);
   $(function() {
     console_data();
-    $('#refre').bind('click', console_data());
+    //$('#refre').bind('click', console_data());
   });
 
 
