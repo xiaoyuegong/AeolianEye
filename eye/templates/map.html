@@ -114,8 +114,8 @@ h1 {
       console.log("after lat", lat, "lng" ,lng);
 	   map = L.map('map').setView([lat, lng], 13);
       // alert(lat);
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     var LeafIcon = L.Icon.extend({
       options: {
