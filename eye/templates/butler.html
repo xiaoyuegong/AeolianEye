@@ -80,7 +80,7 @@ h1 {
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Aeolian 1</td>
+      <td>Aeolian </td>
       <td>Dining Room</td>
       <td id ="data1"></td>
     </tr>
@@ -96,8 +96,22 @@ h1 {
       <td>Study Room</td>
       <td id="data3"></td>
     </tr>
+        <tr>
+      <th scope="row">3</th>
+      <td>A<div class="input-group">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+  <span class="input-group-addon" id="basic-addon2">Add!</span>
+</div></td>
+      <td>Study Room</td>
+      <td id="data3"></td>
+    </tr>
   </tbody>
 </table>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+  <span class="input-group-addon" id="basic-addon2">Add!</span>
+</div>
+
     <script type="text/javascript">
   var console_data = function(e) {
     $.get('/data', function (newdata) {
