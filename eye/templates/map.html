@@ -99,6 +99,7 @@ h1 {
   var orangeIcon;
   var yellowIcon;
   var pikachuIc;
+  var LeafIcon;
   var x = document.getElementById("demo");
   function getLocation() {
     if (navigator.geolocation) {
@@ -118,7 +119,7 @@ h1 {
       L.tileLayer('https\://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    var LeafIcon = L.Icon.extend({
+    LeafIcon = L.Icon.extend({
       options: {
         shadowUrl: '',
         iconSize:     [60, 60],
@@ -180,12 +181,12 @@ console.log("latest"+newresults[newresults.length-1].data);
 if(newresults[newresults.length-1].data<130){
  map.addLayer(marker1);
  map.removeLayer(marker2);
-        marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+        marker1.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
 }else{
  map.addLayer(marker2);
  map.removeLayer(marker1);
- marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+ marker2.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 }
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
