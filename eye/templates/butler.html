@@ -69,20 +69,40 @@ h1 {
     </div>
 <div id="demo">
     <script type="text/javascript">
-  var console_data = function(e) {
+var console_data = function(e) {
     $.get('/data', function (newdata) {
-      console.log(newdata['results']);
-      //console.log("new");
-      //console.log(newdata['results'][0]);
-      //console.log("latest");
+      var newresults = newdata['results'];
+      //console.log(newdata);
+      console.log("latest");
+      console.log(newresults[newresults.length-1].data);
     //console.log(newdata[newdata.length-1].data);
-    //document.getElementById("#demo").innerHTML = newdata[newdata.length-1].data;
+    if(newresults[newresults.length-1].data>130){
+      for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
+        gastlyArr.push(new newGastly());
+        //gastlyArr.push(new newGastly());
+      }
+      for(i = 0; i < newresults[newresults.length-1].data-100; i= i + 5){
+        mukArr.push(new newMuk());
+      }
+    }else{
+      console.log("bulba");
+      for(i = 0; i < 120 - newresults[newresults.length-1].data; i= i + 3){
+      bulbasaurArr.push(new newBulbasaur());
+      }
+    }
+      // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
+      //   bulbasaurArr.push(new newBulbasaur());
+      //   bulbasaurArr.push(new newBulbasaur());
+      //   bulbasaurArr.push(new newBulbasaur());
+        //gastlyArr.push(new newGastly());
+      //}
     });
-  };
+  }
   // setInterval(function () {console.log(1234);}, 100);
+
   $(function() {
     console_data();
-    //$('#refre').bind('click', console_data());
+    $('#refre').bind('click', console_data());
   });
 
 
