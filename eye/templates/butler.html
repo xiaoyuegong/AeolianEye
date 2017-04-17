@@ -171,7 +171,7 @@ h1 {
       //}
     });
   }
-  setInterval(function () {console_data();}, 200);
+  setInterval(function () {console_data();paint();}, 300);
 
   $(function() {
     console_data();
@@ -183,7 +183,7 @@ function setup() {
   bg = loadImage("static/chart.png");
 
 }
-function draw(){
+function paint(){
   background(bg);
   noSmooth();
 
