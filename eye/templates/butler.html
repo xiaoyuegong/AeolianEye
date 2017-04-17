@@ -181,16 +181,24 @@ var p = [];
   });
 function setup() {
   // Sets the screen to be 720 pixels wide and 400 pixels high
-  createCanvas(windowWidth/1.2, windowHeight/2);
+  createCanvas(windowWidth, windowHeight/2);
 
 }
 function draw(){
   background(240);
+  fill('red');
+  rect(0,0,width,height/2);
+  fill('orange');
+  rect(0,height/2,width,height/4);
+  fill('blue');
+  rect(0,height*3/4,width,height/3);
+  fill('green');
+  rect(0,height*4/5,width,height/2);
   noSmooth();
   // Draw gray box
   stroke(153);
   for(i=0;i<50;i++){
-      line(20*i, p[i], 20*(i+1), p[i+1]);
+      line(50+25*i, height-p[i], 20*(i+1), p[i+1]);
     }
   //line(400, p4, 500, p3);
 
