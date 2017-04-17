@@ -146,7 +146,7 @@ h1 {
           }
         }
         for(i=0;i<pikachuArr.length; i++){
-        if(mouseX-40 > pikachu.gx-20 && mouseX-40 < pikachu.gx+20 && mouseY-50 > pikachu.gy-20 && mouseY-50 < pikachu.gy+20){
+        if(mouseX-40 > pikachuArr[i].gx-20 && mouseX-40 < pikachuArr[i].gx+20 && mouseY-50 > pikachuArr[i].gy-20 && mouseY-50 < pikachuArr[i].gy+20){
             console.log("mistake");
             location.reload();
           }
@@ -234,7 +234,7 @@ h1 {
       }
     }else{
       console.log("bulba");
-      for(i = 0; i < 110 - newresults[newresults.length-1].data; i= i + 3){
+      for(i = 0; i < 120 - newresults[newresults.length-1].data; i= i + 3){
       bulbasaurArr.push(new newBulbasaur());
       }
     }
