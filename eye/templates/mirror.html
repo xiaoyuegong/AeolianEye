@@ -97,6 +97,7 @@ h1 {
         videop.hide();
         bulbasaurArr.push(new newBulbasaur());
         //gastlyArr.push(new newGastly());
+        pikachuArr.push(new newPikachu());
       }
       function draw() {   
         cnv = createCanvas(windowWidth/1.5, windowWidth/2.1);
@@ -144,10 +145,12 @@ h1 {
             gastlyArr.push(new newGastly());
           }
         }
+        for(i=0;i<pikachuArr.length; i++){
         if(mouseX-40 > pikachu.gx-20 && mouseX-40 < pikachu.gx+20 && mouseY-50 > pikachu.gy-20 && mouseY-50 < pikachu.gy+20){
             console.log("mistake");
             location.reload();
           }
+        }
       }
       function windowResized() {
         centerCanvas();
@@ -234,7 +237,6 @@ h1 {
       for(i = 0; i < 110 - newresults[newresults.length-1].data; i= i + 3){
       bulbasaurArr.push(new newBulbasaur());
       }
-      pikachuArr.push(new newPikachu());
     }
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
       //   bulbasaurArr.push(new newBulbasaur());
