@@ -125,7 +125,7 @@ footer{
         }  
         for(i=0;i<pikachuArr.length; i++){
           pikachuArr[i].move();
-        drawmask = image(mask,pikachuArr[i].gx+38, pikachuArr[i].gy+14, 68, 68);
+        drawmask = image(mask,pikachuArr[i].mgx+38, pikachuArr[i].mgy+14, 68, 68);
           
     //console.log(gastlyArr[i].gx+i+":gx");
         } 
@@ -165,7 +165,8 @@ footer{
             if(mukArr.length == 0 && gastlyArr.length==0){
             console.log("Victory");
             pikachuArr[0].gxPlus =0.5; 
-            drawmask.hide();
+            pikachuArr[0].mgx = -100;
+            pikachuArr[0].mgy = -100;
           }
         }
       }
@@ -226,6 +227,8 @@ footer{
         this.gx = random(width*0.1);
         this.gy = random(100);
         this.gxPlus = 0;
+        this.mgx = this.gx;
+        this.mgy =  this.gy;
         var a = this.gx;
         var b = this.gy;
         this.move = function(){
