@@ -80,7 +80,10 @@ h1 {
 var systems;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight/2);
+  var cnv = createCanvas(500, 400);
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
   systems = [];
 }
 
