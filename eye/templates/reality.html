@@ -254,6 +254,7 @@ var sensorC = [];
           sensorA.push(newresults[i]);
         }
       }
+      document.getElementsByClassName("footer").innerHTML = sensorA[sensorA.length-1].data;
     //console.log(newdata[newdata.length-1].data);
     if(sensorA[sensorA.length-1].data>130){
       for(i = 0; i < sensorA[sensorA.length-1].data-100; i= i + 5){
@@ -280,5 +281,6 @@ var sensorC = [];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </div>
+  <footer></footer>
   </body>
 </html>
