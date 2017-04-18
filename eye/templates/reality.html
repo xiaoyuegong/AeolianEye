@@ -133,7 +133,6 @@ h1 {
         for(i=0;i<mukArr.length; i++){
           if(mouseX-40 > mukArr[i].gx-20 && mouseX-40 < mukArr[i].gx+20 && mouseY-50 > mukArr[i].gy-20 && mouseY-50 < mukArr[i].gy+20){
             mukArr[i].life =mukArr[i].life -1;
-            text(mukArr[i].life, mukArr[i].gx+20,mukArr[i].gy-20)
             console.log("hittarget", mukArr[i].life);
             if(mukArr[i].life<0){
               mukArr.splice(i,1);
@@ -191,6 +190,9 @@ h1 {
           if(this.gx > width*0.8 || this.gx < 0){
           this.gxPlus *= -1;
           }
+          textSize(26);
+          fill(255,10,10);
+          text(mukArr[i].life, mukArr[i].gx+20,mukArr[i].gy-20);
         }
      }
 
