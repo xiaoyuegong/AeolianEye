@@ -158,8 +158,7 @@ var sensorC = [];
         // if（newresults[i].id=="1b0030001947353236343033"）{
         //   sensorC.push(newresults[i]);
         // }else 
-
-        if(newresults[i].id=="1b0030001947353236343033"){
+      if(newresults[i].id=="1b0030001947353236343033"){
           sensorC.push(newresults[i]);
         }else if(newresults[i].id=="2c0047001347353236343033"){
           sensorB.push(newresults[i]);
@@ -219,6 +218,7 @@ stroke(10);
       line(150+width/60*i, height-sensorC[sensorC.length-51+i].data+5, 150+width/60*(i+1), height-sensorC[sensorC.length-51+i+1].data+5);
     }
   }
+
       noStroke();
       textSize(19);
         fill(170);
