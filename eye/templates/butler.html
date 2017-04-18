@@ -158,10 +158,9 @@ var sensorC = [];
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
       for(i=0;i<newresults.length;i++){
-        if（newresults[i].id=="1b0030001947353236343033"）{
+        if（newresults[i].id==1b0030001947353236343033）{
           sensorA.push(newresults[i]);
-        }else if(newresults[i].id=="2c0047001347353236343033")
-        {
+        }else if(newresults[i].id==2c0047001347353236343033){
           sensorB.push(newresults[i]);
         }else{
           sensorA.push(newresults[i]);
