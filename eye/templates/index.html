@@ -111,7 +111,7 @@ function mousePressed() {
 
 // A simple Particle class
 var Particle = function(position) {
-  this.acceleration = createVector(0, 0.1);
+  this.acceleration = createVector(0, 0.07);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
   this.position = position.copy();
   this.lifespan = 255.0;
@@ -131,10 +131,10 @@ Particle.prototype.update = function(){
 
 // Method to display
 Particle.prototype.display = function () {
-  var a = random(200);
-  stroke(a,a-30,50, this.lifespan);
+  var a = random(250);
+  stroke(a,a-120,50, this.lifespan);
   strokeWeight(2);
-  fill(180, this.lifespan);
+  fill(150, this.lifespan);
   ellipse(this.position.x, this.position.y, 11, 11);
 };
 
