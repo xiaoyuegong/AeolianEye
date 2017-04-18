@@ -208,15 +208,15 @@ text("Trends in past 12 hrs", 10, 40);
   if(sensorA.length>50&&sensorB.length>50&&sensorC.length>50){
   for(var i=0;i<50;i++){
     console.log("drawA");
-      line(150+width/60*i, height-sensorA[sensorA.length-50+i].data+5, 150+width/60*(i+1), height-sensorA[sensorA.length-50+i+1].data+5);
+      line(150+width/60*i, height-sensorA[sensorA.length-51+i].data+5, 150+width/60*(i+1), height-sensorA[sensorA.length-51+i+1].data+5);
     }
 stroke(100);
       for(var i=0;i<50;i++){
-      line(150+width/60*i, height-sensorB[sensorB.length-50+i].data+5, 150+width/60*(i+1), height-sensorB[sensorB.length-50+i+1].data+5);
+      line(150+width/60*i, height-sensorB[sensorB.length-51+i].data+5, 150+width/60*(i+1), height-sensorB[sensorB.length-51+i+1].data+5);
     }
 stroke(10);
       for(var i=0;i<50;i++){
-      line(150+width/60*i, height-sensorC[sensorC.length-50+i].data+5, 150+width/60*(i+1), height-sensorC[sensorC.length-50+i+1].data+5);
+      line(150+width/60*i, height-sensorC[sensorC.length-51+i].data+5, 150+width/60*(i+1), height-sensorC[sensorC.length-51+i+1].data+5);
     }
   }
       noStroke();
