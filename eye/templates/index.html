@@ -37,6 +37,7 @@ h1 {
   top:50%;
   left:20%;
   width:60%;
+  z-index: 10;
 }
 </style>
   <body>
@@ -99,7 +100,7 @@ function draw() {
     textAlign(CENTER);
     textStyle(BOLD);
     textSize(30);
-    text("Aeolian Eye is an Internet of Things system that provides the real-time air quality data of public and private indoor areas for residents in Chinese cities through a web application, that enhances the information with Augmented Reality.", width/2, height/2);
+    text(".", width/2, height/2);
   }
 }
 
@@ -130,10 +131,10 @@ Particle.prototype.update = function(){
 
 // Method to display
 Particle.prototype.display = function () {
-  stroke(random(255),random(255),random(255), this.lifespan);
+  stroke(random(100),random(100),random(100), this.lifespan);
   strokeWeight(2);
   fill(180, this.lifespan);
-  ellipse(this.position.x, this.position.y, 12, 18);
+  ellipse(this.position.x, this.position.y, 11, 11);
 };
 
 // Is the particle still useful?
@@ -217,7 +218,7 @@ CrazyParticle.prototype.display=function() {
   </div>
   <<div class="card">
   <div class="card-block">
- 
+ Aeolian Eye is an Internet of Things system that provides the real-time air quality data of public and private indoor areas for residents in Chinese cities through a web application, that enhances the information with Augmented Reality
   </div>
 </div>
 </div>
