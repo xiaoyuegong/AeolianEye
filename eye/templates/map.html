@@ -20,7 +20,6 @@
       margin: auto;
       width: 90%;
       height: 65%;;
-      padding-top: 1em;
     }
   </style>
 </head>
@@ -37,6 +36,7 @@
 #demo{
   padding:0 5em 0 5em;
 	float:left;
+  margin-bottom: 1em;
 }
 .input-group{
   padding-right:5em;
@@ -111,7 +111,7 @@ h1 {
       }
   }
    function showPosition(position) {
-     x.innerHTML = "What is your story?</br>Where is your journey taking you?"//"Current Latitude: " + position.coords.latitude + 
+     x.innerHTML = "What is your story?</br>Where does your journey take you?"//"Current Latitude: " + position.coords.latitude + 
       //"<br>Current Longitude: " + position.coords.longitude;
       lat = position.coords.latitude;
       lng = position.coords.longitude;
