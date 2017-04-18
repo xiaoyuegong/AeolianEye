@@ -81,7 +81,7 @@ h1 {
 var systems;
 
 function setup() {
-  var cnv = createCanvas(500, 400);
+  var cnv = createCanvas(windowWidth*0.9, windowHeight*0.7);
   var x = (windowWidth - width) / 2;
   var y = (windowHeight - height) / 2+100;
   cnv.position(x, y);
@@ -131,7 +131,7 @@ Particle.prototype.update = function(){
 
 // Method to display
 Particle.prototype.display = function () {
-  stroke(random(100),random(100),random(100), this.lifespan);
+  stroke(random(100),100,50, this.lifespan);
   strokeWeight(2);
   fill(180, this.lifespan);
   ellipse(this.position.x, this.position.y, 11, 11);
