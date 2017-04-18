@@ -165,7 +165,7 @@ h1 {
 
       function newGastly(){
         this.gx = random(width*0.8);
-        this.gy = random(100);
+        this.gy = random(height*0.8);
         this.gxPlus = 0.02+random(0.8);
         this.move = function(){
           this.gyPlus = sin(0.5*this.gx);
@@ -180,7 +180,7 @@ h1 {
 
       function newMuk(){
         this.gx = random(width*0.8);
-        this.gy = random(100);
+        this.gy = random(height*0.8);
         this.gxPlus = 0.01+random(0.8);
         this.life = 3;
         this.move = function(){
@@ -195,7 +195,7 @@ h1 {
 
       function newBulbasaur(){
         this.gx = random(width*0.8);
-        this.gy = random(100);
+        this.gy = random(height*0.8);
         this.gxPlus = 0.01+random(0.8);
         this.move = function(){
           this.gyPlus = sin(0.5*this.gx);
