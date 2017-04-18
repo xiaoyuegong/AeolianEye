@@ -92,7 +92,9 @@ h1 {
 <div id='map'></div>
 <script>
    var map;
-     var marker;
+  var marker1;
+  var marker2;
+  var marker3;
   var lat = 40;
   var lng = 40;
   var greenIcon;
@@ -143,13 +145,13 @@ h1 {
         L.marker([lat+0.015, lng-0.027], {icon: koffIc}).bindPopup("Combustible Gas concentration at Babaiban Mall : 190").addTo(map);
         L.marker([lat-0.045, lng+0.0003], {icon: yellowIcon}).bindPopup("Some Air Pollution at IFC Cinema : 161").addTo(map);
        L.marker([lat-0.030, lng-0.0147], {icon: koffIc}).bindPopup("Combustible Gas concentration at Chongqing Hotpot : 223").addTo(map);
-           L.marker([lat-0.015, lng-0.087], {icon: koffIc}).bindPopup("Combustible Gas concentration at Jing An Temple : 330").addTo(map);
-       L.marker([lat-0.002, lng-0.021], {icon: greenIcon}).bindPopup("Clean Air at Oriental Pearl TV Tower : 91").addTo(map);
+      marker2 = new L.marker([lat-0.015, lng-0.087], {icon: koffIc}).bindPopup("Combustible Gas concentration at Jing An Temple : 330").addTo(map);
+       marker3 = new L.marker([lat-0.002, lng-0.021], {icon: greenIcon}).bindPopup("Clean Air at Oriental Pearl TV Tower : 91").addTo(map);
        L.marker([lat+0.041, lng-0.021], {icon: greenIcon}).bindPopup("Clean Air at Shanghai Art Gallery : 100").addTo(map);
        L.marker([lat-0.01, lng-0.023], {icon: greenIcon}).bindPopup("Clean Air at Jinmao Tower : 82").addTo(map);
         L.marker([lat+0.0201, lng-0.059], {icon: greenIcon}).bindPopup("Clean Air at Medea Department Store : 99").addTo(map);
        L.marker([lat+0.015, lng-0.011], {icon: greenIcon}).bindPopup("Clean Air at Citibank Co Ltd: 101").addTo(map);
-     marker = new L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai : 93").addTo(map);
+     marker1 = new L.marker([lat, lng], {icon: greenIcon}).bindPopup("Clean Air at NYU Shanghai : 93").addTo(map);
 
   }
   window.onload = function() {
@@ -176,36 +178,61 @@ h1 {
           }
         });
       }
+///////////////////////////////
 
-  var console_data = function(e) {
+var sensorA = [];
+var sensorB = [];
+var sensorC = [];
+  var console_data = function (e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
-      //console.log(newdata);
-      //console.log("latest");
-      //console.log(newresults[newresults.length-1].data);
-console.log("latest"+newresults[newresults.length-1].data);
-if(newresults[newresults.length-1].data<130){
-  marker.setIcon(greenIcon);
-marker.setPopupContent( "Clean Air at NYU Shanghai: " +newresults[newresults.length-1].data );
-}else{
-  //tiles.redraw();
-marker.setIcon( orangeIcon);
-marker.setPopupContent( "Hazardous Air at NYU Shanghai: "+ newresults[newresults.length-1].data );
-}
-    //console.log(newdata[newdata.length-1].data);
-      // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
-      //   bulbasaurArr.push(new newBulbasaur());
-      //   bulbasaurArr.push(new newBulbasaur());
-      //   bulbasaurArr.push(new newBulbasaur());
-        //gastlyArr.push(new newGastly());
-      //}
+      for(var i=0;i<newresults.length;i++){
+        // if（newresults[i].id=="1b0030001947353236343033"）{
+        //   sensorC.push(newresults[i]);
+        // }else 
+      if(newresults[i].id=="1b0030001947353236343033"){
+          sensorC.push(newresults[i]);
+        }else if(newresults[i].id=="2c0047001347353236343033"){
+          sensorB.push(newresults[i]);
+        }else{
+          sensorA.push(newresults[i]);
+        }
+      }
+      if(sensorA[sensorA.length-1].data<130){
+        marker1.setIcon(greenIcon);
+        marker1.setPopupContent( "Clean Air at NYU Shanghai: " +sensorA[sensorA.length-1].data );
+      }else{
+        //tiles.redraw();
+        marker1.setIcon( orangeIcon);
+        marker1.setPopupContent( "Hazardous Air at NYU Shanghai: "+ sensorA[sensorA.length-1].data );
+      }
+      if(sensorB[sensorB.length-1].data<130){
+        marker2.setIcon(greenIcon);
+        marker2.setPopupContent( "Clean Air at Jing An Temple: " +sensorB[sensorB.length-1].data );
+      }else{
+        //tiles.redraw();
+        marker2.setIcon(orangeIcon);
+        marker2.setPopupContent( "Hazardous Air at Jing An Temple: "+ sensorB[sensorB.length-1].data );
+      }
+      if(sensorC[sensorC.length-1].data<130){
+        marker3.setIcon(greenIcon);
+        marker3.setPopupContent( "Clean Air at Oriental Pearl TV Tower: " +sensorC[sensorC.length-1].data );
+      }else{
+        //tiles.redraw();
+        marker3.setIcon(orangeIcon);
+        marker3.setPopupContent( "Hazardous Air at Oriental Pearl TV Tower: "+ sensorC[sensorC.length-1].data );
+      }
+
+
     });
   }
   setInterval(function () {console_data();}, 500);
 
+
+/////////////////////////////////////////
+
   $(function() {
     console_data();
-    $('#refre').bind('click', console_data());
   });
   // setInterval(function () {console.log(1234);}, 100);
     </script>
