@@ -157,7 +157,7 @@ var sensorC = [];
   var console_data = function (e) {
     $.get('/data', function (newdata) {
       var newresults = newdata['results'];
-      for(i=0;i<newresults.length;i++){
+      for(var i=0;i<newresults.length;i++){
         // if（newresults[i].id=="1b0030001947353236343033"）{
         //   sensorC.push(newresults[i]);
         // }else 
@@ -207,15 +207,15 @@ textSize(25);
 text("Trends in past 12 hrs", 10, 40);
   strokeWeight(5);
   stroke(170);
-  for(i=0;i<50;i++){
+  for(var i=0;i<50;i++){
       line(150+width/60*i, height-sensorA[i]+5, 150+width/60*(i+1), height-sensorA[i+1])+5;
     }
 stroke(100);
-      for(i=0;i<50;i++){
+      for(var i=0;i<50;i++){
       line(150+width/60*i, height-sensorB[i]+5, 150+width/60*(i+1), height-sensorB[i+1]+5);
     }
 stroke(10);
-      for(i=0;i<50;i++){
+      for(var i=0;i<50;i++){
       line(150+width/60*i, height-sensorC[i]+5, 150+width/60*(i+1), height-sensorC[i+1]+5);
     }
       noStroke();
