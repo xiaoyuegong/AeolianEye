@@ -173,11 +173,6 @@ var sensorC = [];
     document.getElementById("data1").innerHTML = sensorA[sensorA.length-1].data;
    document.getElementById("data2").innerHTML = sensorB[sensorB.length-1].data;
     document.getElementById("data3").innerHTML = sensorC[sensorC.length-1].data;
-    for(i=0;i<50;i++){
-      p[i]= newresults[newresults.length-50+i].data;
-      q[i]= newresults[newresults.length-100+i].data;
-      r[i]= newresults[newresults.length-200+i].data;
-    }
 
     //console.log(newdata[newdata.length-1].data);
       // for(i = 0; i <  newdata[newdata.length-1].data -100; i = i + 3){
@@ -218,15 +213,15 @@ text("Trends in past 12 hrs", 10, 40);
   strokeWeight(5);
   stroke(170);
   for(i=0;i<50;i++){
-      line(150+width/60*i, height-p[i]+5, 150+width/60*(i+1), height-p[i+1])+5;
+      line(150+width/60*i, height-sensorA[i]+5, 150+width/60*(i+1), height-sensorA[i+1])+5;
     }
 stroke(100);
       for(i=0;i<50;i++){
-      line(150+width/60*i, height-q[i]+5, 150+width/60*(i+1), height-q[i+1]+5);
+      line(150+width/60*i, height-sensorB[i]+5, 150+width/60*(i+1), height-sensorB[i+1]+5);
     }
 stroke(10);
       for(i=0;i<50;i++){
-      line(150+width/60*i, height-r[i]+5, 150+width/60*(i+1), height-r[i+1]+5);
+      line(150+width/60*i, height-sensorC[i]+5, 150+width/60*(i+1), height-sensorC[i+1]+5);
     }
       noStroke();
       textSize(19);
