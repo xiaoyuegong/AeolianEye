@@ -95,10 +95,11 @@ function draw() {
     systems[i].addParticle();
   }
   if (systems.length==0) {
-    fill(255);
+    fill(150);
     textAlign(CENTER);
-    textSize(32);
-    text("**", width/2, height/2);
+    textStyle(BOLD);
+    textSize(30);
+    text("Aeolian Eye is an Internet of Things system that provides the real-time air quality data of public and private indoor areas for residents in Chinese cities through a web application, that enhances the information with Augmented Reality.", width/2, height/2);
   }
 }
 
@@ -216,7 +217,7 @@ CrazyParticle.prototype.display=function() {
   </div>
   <<div class="card">
   <div class="card-block">
-    Aeolian Eye is an Internet of Things system that provides the real-time air quality data of public and private indoor areas for residents in Chinese cities through a web application, that enhances the information with Augmented Reality.
+ 
   </div>
 </div>
 </div>
