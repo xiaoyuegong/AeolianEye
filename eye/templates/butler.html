@@ -208,15 +208,16 @@ text("Trends in past 12 hrs", 10, 40);
   strokeWeight(5);
   stroke(170);
   console.log("lengths", sensorA.length, "b,", sensorB.length,"c", sensorC.length );
-  for(var i=0;i<50;i++){
+  for(int i=0;i<50;i++){
+    console.log("drawA");
       line(150+width/60*i, height-sensorA[i]+5, 150+width/60*(i+1), height-sensorA[i+1])+5;
     }
 stroke(100);
-      for(var i=0;i<50;i++){
+      for(int i=0;i<50;i++){
       line(150+width/60*i, height-sensorB[i]+5, 150+width/60*(i+1), height-sensorB[i+1]+5);
     }
 stroke(10);
-      for(var i=0;i<50;i++){
+      for(int i=0;i<50;i++){
       line(150+width/60*i, height-sensorC[i]+5, 150+width/60*(i+1), height-sensorC[i+1]+5);
     }
       noStroke();
