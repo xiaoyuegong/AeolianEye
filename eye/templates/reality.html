@@ -30,6 +30,11 @@ h1 {
     text-align: center;
     /*background-image: url("static/logo.png");*/
 }
+footer{
+  position:fixed;
+  bottom:30%;
+  right:0;
+}
 </style>
   <body>
     <h1>AEOLIAN EYE</h1>
@@ -254,7 +259,7 @@ var sensorC = [];
           sensorA.push(newresults[i]);
         }
       }
-      document.getElementsByClassName("footer").innerHTML = sensorA[sensorA.length-1].data;
+      document.getElementsByTagName("footer").innerHTML = sensorA[sensorA.length-1].data;
     //console.log(newdata[newdata.length-1].data);
     if(sensorA[sensorA.length-1].data>130){
       for(i = 0; i < sensorA[sensorA.length-1].data-100; i= i + 5){
