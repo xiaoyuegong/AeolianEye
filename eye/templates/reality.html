@@ -86,6 +86,10 @@ footer{
       var mukArr = [];
       var pikachuArr = [];
       var drawmask ;
+      var leaf;
+      var fog;
+      var leafArr;
+      var fogArr;
       function centerCanvas() {
         var x = (windowWidth - width) / 2;
         var y = windowHeight * 0.2;
@@ -101,8 +105,11 @@ footer{
         bulbasaur = loadImage("static/Bulbasaur.png");
         pikachu = loadImage("static/Pikachu.png");
         mask = loadImage("static/mask.png");
+        leaf = loadImage("static/leaf.png");
+        fog  = loadImage("static/cloud.png");
         videop.hide();
         bulbasaurArr.push(new newBulbasaur());
+        leafArr.push(new newLeaf());
         //gastlyArr.push(new newGastly());
         pikachuArr.push(new newPikachu());
       }
@@ -157,6 +164,7 @@ footer{
           else{
             console.log("mistake");
             gastlyArr.push(new newGastly());
+            fogArr.push(new newFog());
           }
           }
         }
@@ -190,6 +198,22 @@ footer{
         }
      }
 
+      function newFog(){
+        this.gx = random(width*0.8);
+        this.gy = random(height*0.8);
+        this.gxPlus = 0.02+random(0.8);
+        this.move = function(){
+          this.gyPlus = sin(0.5*this.gx);
+          image(gastly, this.gx, this.gy+this.gyPlus, 100, 100);
+          this.gx += this.gxPlus;
+          if(this.gx > width*0.8 || this.gx < 0){
+          this.gxPlus *= -1;
+          this.gy = random(20);
+          }
+        }
+     }
+
+
       function newMuk(){
         this.gx = random(width*0.8);
         this.gy = random(height*0.8);
@@ -210,6 +234,20 @@ footer{
      }
 
       function newBulbasaur(){
+        this.gx = random(width*0.8);
+        this.gy = random(height*0.8);
+        this.gxPlus = 0.01+random(0.8);
+        this.move = function(){
+          this.gyPlus = sin(0.5*this.gx);
+          image(bulbasaur, this.gx, this.gy+this.gyPlus, 100, 100);
+          this.gx += this.gxPlus;
+          if(this.gx > width*0.8 || this.gx < 0){
+          this.gxPlus *= -1;
+          }
+        }
+     }
+
+    function newLeaf(){
         this.gx = random(width*0.8);
         this.gy = random(height*0.8);
         this.gxPlus = 0.01+random(0.8);
